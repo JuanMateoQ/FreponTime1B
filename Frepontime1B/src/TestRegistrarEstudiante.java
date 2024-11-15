@@ -6,10 +6,10 @@ public class TestRegistrarEstudiante {
     public static void main(String[] args) {
         GestorEstudiante gestorEstudiante = new GestorEstudiante();
         File archivoEstudiante = new File("Frepontime1B/src/Datos/Estudiantes.txt");
-        GestorArchivos.cargarEstudiantes(gestorEstudiante, archivoEstudiante);
+        //GestorArchivos.cargarEstudiantes(gestorEstudiante, archivoEstudiante);
         registrarEstudiante(gestorEstudiante);
         buscarEstudiante(gestorEstudiante);
-        GestorArchivos.guardarEstudiantes(gestorEstudiante, archivoEstudiante);
+        //GestorArchivos.guardarEstudiantes(gestorEstudiante, archivoEstudiante);
 
         System.out.println("\\n\n Estudiantes registrados:\n");
         gestorEstudiante.imprimirEstudiantes();
@@ -31,15 +31,15 @@ public class TestRegistrarEstudiante {
         System.out.println("====================Registro de un estudiante====================");
 
         // Información por pedir
-        /*String códigoVerificación = generarCódigoRandom(1000, 9999);
-        String correo = "juan.cofre@epn.edu.ec";
-        String usuario = "juanChest";
-        String nombre = "Juan";
-        String apellido = "Cofre";*/
+        String códigoVerificación = generarCódigoRandom(1000, 9999);
+        String correo = "juan.quisilema@epn.edu.ec";
+        String usuario = "mateoQ";
+        String nombre = "Mateo";
+        String apellido = "Quisilema";
 
         // Generar y enviar el código de verificación
-        // GestorCorreosElectrónicos correosElectrónicos = new GestorCorreosElectrónicos();
-        // correosElectrónicos.enviarMensajeDeVerificaciónDeRegistro(correo, códigoVerificación, usuario);
+        GestorCorreosElectrónicos correosElectrónicos = new GestorCorreosElectrónicos();
+        correosElectrónicos.enviarMensajeDeVerificaciónDeRegistro(correo, códigoVerificación, usuario);
 
         //Después de validar el correo electrónico con el código de verificación
        /* gestorEstudiante.agregarEstudiante(new Estudiante(apellido, nombre, usuario, correo));
