@@ -50,4 +50,8 @@ public class GestorReserva {
         }
         return auxJuegos;
     }
+
+    public boolean iniciarSesion(String correo, String contrasena) {
+        return gestorEstudiante.iniciarSesion(correo, contrasena);
+    }
 }

@@ -24,11 +24,15 @@ public class RegistroController {
 
     @FXML
     public void registrar(ActionEvent event){
+        String nombreAux = nombreCompletoField.getText();
+        String emailAux = emailTextField.getText();
+        String facultadAux = facultadTextField.getText();
+        String phoneAux = phoneTextField.getText();
 
     }
     @FXML
     public void regresar(ActionEvent event){
-
+        NavegacionInterfaces.cambiarVentana((Stage)regresarButton.getScene().getWindow(), "/presentacion/views/login.fxml", "Login");
     }
 
 }

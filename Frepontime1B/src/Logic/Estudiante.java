@@ -18,17 +18,6 @@ public class Estudiante {
         this.enLínea = false;
     }
 
-    @Override
-    public String toString() {
-        return "Estudiante{" +
-                ", apellido='" + apellido + '\'' +
-                "nombre='" + nombre + '\'' +
-                ", usuario='" + usuario + '\'' +
-                ", correoElectrónico='" + correoElectrónico + '\'' +
-                ", contraseña=" + contraseña + '\'' +
-                '}';
-    }
-
     public String getNombre() {
         return nombre;
     }
