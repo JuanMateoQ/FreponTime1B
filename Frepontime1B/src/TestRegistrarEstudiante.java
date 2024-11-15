@@ -1,10 +1,18 @@
+import java.io.File;
 import java.util.Random;
+
 
 public class TestRegistrarEstudiante {
     public static void main(String[] args) {
         GestorEstudiante gestorEstudiante = new GestorEstudiante();
+        File archivoEstudiante = new File("Frepontime1B/src/Datos/Estudiantes.txt");
+        GestorArchivos.cargarEstudiantes(gestorEstudiante, archivoEstudiante);
         registrarEstudiante(gestorEstudiante);
         buscarEstudiante(gestorEstudiante);
+        GestorArchivos.guardarEstudiantes(gestorEstudiante, archivoEstudiante);
+
+        System.out.println("\\n\n Estudiantes registrados:\n");
+        gestorEstudiante.imprimirEstudiantes();
     }
 
     private static void buscarEstudiante(GestorEstudiante gestorEstudiante) {
@@ -23,27 +31,27 @@ public class TestRegistrarEstudiante {
         System.out.println("====================Registro de un estudiante====================");
 
         // Información por pedir
-        String códigoVerificación = generarCódigoRandom(1000, 9999);
+        /*String códigoVerificación = generarCódigoRandom(1000, 9999);
         String correo = "juan.cofre@epn.edu.ec";
         String usuario = "juanChest";
         String nombre = "Juan";
-        String apellido = "Cofre";
+        String apellido = "Cofre";*/
 
         // Generar y enviar el código de verificación
-        //GestorCorreosElectrónicos correosElectrónicos = new GestorCorreosElectrónicos();
-        //correosElectrónicos.enviarMensajeDeVerificaciónDeRegistro(correo, códigoVerificación, usuario);
+        // GestorCorreosElectrónicos correosElectrónicos = new GestorCorreosElectrónicos();
+        // correosElectrónicos.enviarMensajeDeVerificaciónDeRegistro(correo, códigoVerificación, usuario);
 
         //Después de validar el correo electrónico con el código de verificación
-        gestorEstudiante.agregarEstudiante(new Estudiante(nombre, apellido, usuario, correo));
-        gestorEstudiante.agregarEstudiante(new Estudiante(nombre, apellido, usuario, correo));
-        gestorEstudiante.agregarEstudiante(new Estudiante("Pepe", "1", "pepe1", "correopepe1@gmail.com"));
-        gestorEstudiante.agregarEstudiante(new Estudiante("Pepe", "2", "pepe2", "correopepe2@gmail.com"));
-        gestorEstudiante.agregarEstudiante(new Estudiante("Pepe", "3", "pepe3", "correopepe3@gmail.com"));
-        gestorEstudiante.agregarEstudiante(new Estudiante("Pepe", "4", "pepe4", "correopepe4@gmail.com"));
+       /* gestorEstudiante.agregarEstudiante(new Estudiante(apellido, nombre, usuario, correo));
+        gestorEstudiante.agregarEstudiante(new Estudiante(apellido, nombre, usuario, correo));
+        gestorEstudiante.agregarEstudiante(new Estudiante("uno", "Pepe", "pepe1", "correopepe1@gmail.com"));
+        gestorEstudiante.agregarEstudiante(new Estudiante("dos", "Pepe", "pepe2", "correopepe2@gmail.com"));
+        gestorEstudiante.agregarEstudiante(new Estudiante("tres", "Pepe", "pepe3", "correopepe3@gmail.com"));
+        gestorEstudiante.agregarEstudiante(new Estudiante("cuatro", "Pepe", "pepe4", "correopepe4@gmail.com"));*/
 
-        System.out.println("Estudiantes registrados");
-        gestorEstudiante.imprimirEstudiantes();
+        gestorEstudiante.agregarEstudiante(new Estudiante("Huilca", "Fernando", "FH", "fernando2@gmail.com"));
     }
+
 
     private static String generarCódigoRandom(int limiteInferior, int limiteSuperior) {
         Random random = new Random();

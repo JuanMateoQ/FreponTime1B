@@ -1,21 +1,23 @@
 public class Estudiante {
-    private String nombre;
     private String apellido;
+    private String nombre;
     private String usuario;
     private String correoElectrónico;
+    private boolean enLínea;
 
-    public Estudiante(String nombre, String apellido,String usuario, String correoElectrónico) {
-        this.nombre = nombre;
+    public Estudiante(String apellido, String nombre,String usuario, String correoElectrónico) {
         this.apellido = apellido;
+        this.nombre = nombre;
         this.usuario = usuario;
         this.correoElectrónico = correoElectrónico;
+        this.enLínea = false;
     }
 
     @Override
     public String toString() {
         return "Estudiante{" +
-                "nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
+                "nombre='" + nombre + '\'' +
                 ", usuario='" + usuario + '\'' +
                 ", correoElectrónico='" + correoElectrónico + '\'' +
                 '}';
