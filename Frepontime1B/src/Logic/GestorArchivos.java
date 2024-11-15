@@ -1,3 +1,5 @@
+package Logic;
+
 import java.io.*;
 
 public class GestorArchivos {
@@ -9,7 +11,8 @@ public class GestorArchivos {
                 writer.write(estudiante.getApellido() + " "
                         + estudiante.getNombre() + " "
                         + estudiante.getUsuario() + " "
-                        + estudiante.getCorreoElectrónico() + "\n");
+                        + estudiante.getCorreoElectrónico() + " "
+                        +  estudiante.getContraseña() + "\n");
             }
             writer.close();
         } catch (IOException e) {
@@ -25,13 +28,15 @@ public class GestorArchivos {
             String nombreEstudiante;
             String usuarioEstudiante;
             String correoEstudiante;
+            String contraseñaEstudiante;
             while ((estudiante = reader.readLine()) != null) {
                 // Procesar la línea
                 apellidoEstudiante = estudiante.split(" ")[0];
                 nombreEstudiante = estudiante.split(" ")[1];
                 usuarioEstudiante = estudiante.split(" ")[2];
                 correoEstudiante = estudiante.split(" ")[3];
-                gestorEstudiante.agregarEstudiante(new Estudiante(apellidoEstudiante, nombreEstudiante, usuarioEstudiante, correoEstudiante));
+                contraseñaEstudiante = estudiante.split(" ")[4];
+                gestorEstudiante.agregarEstudiante(new Estudiante(apellidoEstudiante, nombreEstudiante, usuarioEstudiante, correoEstudiante, contraseñaEstudiante));
             }
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
