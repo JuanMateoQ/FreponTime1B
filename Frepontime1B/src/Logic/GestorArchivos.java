@@ -44,5 +44,25 @@ public class GestorArchivos {
             System.out.println("Error al leer el archivo: " + e.getMessage());
         }
     }
+    public static void cargarJuegos (GestorReserva gestorReserva, File archivoReserva) {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(archivoReserva));
+            String juego;
+            String nombreJuego;
+            boolean buenEstado;
+            double precioPorHora;
+            while ((juego = reader.readLine()) != null) {
+                // Procesar la línea
+                nombreJuego = juego.split(" ")[0];
+                buenEstado = Boolean.parseBoolean(juego.split(" ")[1]);
+                precioPorHora = Double.parseDouble(juego.split(" ")[2]);
+                //TODO: Hacer función agregarJuegos en gestor reserva
+                //gestorReserva.agregarJuegos(new Juego(nombreJuego, buenEstado, precioPorHora));
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            System.out.println("Error al leer el archivo: " + e.getMessage());
+        }
 }
 
