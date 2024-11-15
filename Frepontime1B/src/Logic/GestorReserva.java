@@ -5,13 +5,14 @@ import java.util.ArrayList;
 public class GestorReserva {
     private ArrayList<Reserva> reservasDeEstudiantes;
     private ArrayList<Juego> juegos;
+    private GestorEstudiante gestorEstudiante;
 
     private static GestorReserva instance;
 
-    GestorReserva(){
+    private GestorReserva(){
         reservasDeEstudiantes = new ArrayList<Reserva>();
         juegos = new ArrayList<Juego>();
-        //TODO: leer los atributos del txt
+        gestorEstudiante = new GestorEstudiante();
         //TODO: va a ser la clase principal, todos los demás gestores se inicializan aquí
     }
     public static GestorReserva getInstance() {
