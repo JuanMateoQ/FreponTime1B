@@ -1,5 +1,8 @@
 package Logic;
 
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class GestorReserva {
@@ -13,7 +16,6 @@ public class GestorReserva {
         juegos = new ArrayList();
         //TODO: leer los atributos del txt
         //TODO: va a ser la clase principal, todos los demás gestores se inicializan aquí
-
     }
     public static GestorReserva getInstance() {
         if (instance == null) {
@@ -21,12 +23,24 @@ public class GestorReserva {
         }
         return instance;
     }
-    //TODO: seguir haciendo :(
-    public boolean crearReserva(Juego juego, Horario horario) {
 
+    public boolean crearReserva(Juego juego, Horario horario) {
+        if(existirReservasDuplicadas(juego, horario)){
+            return false;
+        }
+        //TODO: verificación de multas.
         Reserva aux = new Reserva(reservasDeEstudiantes.size(), juego, horario);
         reservasDeEstudiantes.add(aux);
         return true;
+    }
+
+    private boolean existirReservasDuplicadas(Juego juego, Horario horario) {
+        for(int i = 0; i < reservasDeEstudiantes.size(); i++){
+            if(reservasDeEstudiantes.get(i).getJuego().equals(juego) && reservasDeEstudiantes.get(i).getHorario().equals(horario)){
+                return true;
+            }
+        }
+        return false;
     }
 
     public ArrayList<Juego> getJuegosDisponibles() {

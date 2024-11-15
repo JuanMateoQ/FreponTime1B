@@ -10,9 +10,6 @@ public class Juego {
         this.buenEstado = estado;
         this.precioPorHora = precioPorHora;
     }
-    public Juego (){
-        this.nombre = null;
-    }
 
     public boolean getEstado() {
         return buenEstado;
@@ -20,16 +17,28 @@ public class Juego {
 
     @Override
     public String toString() {
-        return "Logic.Juego{" +
+        return "Juego: " +
                 "nombre='" + nombre + '\'' +
                 ", buenEstado=" + buenEstado +
-                ", precioPorHora=" + precioPorHora +
-                '}';
+                ", precioPorHora=" + precioPorHora;
     }
 
     public void crearJuego(Juego juego) {
         this.nombre = juego.nombre;
         this.buenEstado = juego.buenEstado;
         this.precioPorHora = juego.precioPorHora;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj){
+            return true;
+        }
+        if(obj == null || getClass() != obj.getClass()){
+            return false;
+        }
+        Juego juego = (Juego) obj;
+        return this.nombre.equals(juego.nombre) && this.buenEstado == juego.buenEstado
+                && this.precioPorHora == juego.precioPorHora;
     }
 }

@@ -12,4 +12,12 @@ public class Reserva {
         this.estadoDeReserva = true;
         this.horario = horario;
     }
+
+    public Juego getJuego() {
+        return this.juego;
+    }
+
+    public Horario getHorario() {
+        return this.horario;
+    }
 }
