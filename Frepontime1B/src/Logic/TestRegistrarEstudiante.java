@@ -7,7 +7,7 @@ import java.util.Random;
 public class TestRegistrarEstudiante {
     public static void main(String[] args) {
         GestorEstudiante gestorEstudiante = new GestorEstudiante();
-        File archivoEstudiante = new File("Frepontime1B/src/Datos/Estudiantes.txt");
+        File archivoEstudiante = new File("src/Datos/Estudiantes.txt");
         //GestorArchivos.cargarEstudiantes(gestorEstudiante, archivoEstudiante);
         registrarEstudiante(gestorEstudiante);
         buscarEstudiante(gestorEstudiante);
@@ -41,8 +41,8 @@ public class TestRegistrarEstudiante {
         String contraseña = "123456";
 
         // Generar y enviar el código de verificación
-        //GestorCorreosElectrónicos correosElectrónicos = new GestorCorreosElectrónicos();
-        //correosElectrónicos.enviarMensajeDeVerificaciónDeRegistro(correo, códigoVerificación, usuario);
+        GestorCorreosElectrónicos correosElectrónicos = new GestorCorreosElectrónicos();
+        correosElectrónicos.enviarMensajeDeVerificaciónDeRegistro(correo, códigoVerificación, usuario);
 
         //Después de validar el correo electrónico con el código de verificación
         gestorEstudiante.agregarEstudiante(new Estudiante(apellido, nombre, usuario, correo, contraseña));

@@ -7,12 +7,12 @@ public class GestorArchivos {
     public static void guardarEstudiantes(GestorEstudiante gestorEstudiante, File archivoEstudiante) {
         try {
             FileWriter writer = new FileWriter(archivoEstudiante);
-            for(Estudiante estudiante: gestorEstudiante.getEstudiantes()){
+            for (Estudiante estudiante : gestorEstudiante.getEstudiantes()) {
                 writer.write(estudiante.getApellido() + " "
                         + estudiante.getNombre() + " "
                         + estudiante.getUsuario() + " "
                         + estudiante.getCorreoElectrónico() + " "
-                        +  estudiante.getContraseña() + "\n");
+                        + estudiante.getContraseña() + "\n");
             }
             writer.close();
         } catch (IOException e) {
@@ -20,7 +20,8 @@ public class GestorArchivos {
         }
 
     }
-    public static void cargarEstudiantes (GestorEstudiante gestorEstudiante, File archivoEstudiante){
+
+    public static void cargarEstudiantes(GestorEstudiante gestorEstudiante, File archivoEstudiante) {
         try {
             BufferedReader reader = new BufferedReader(new FileReader(archivoEstudiante));
             String estudiante;
@@ -44,7 +45,8 @@ public class GestorArchivos {
             System.out.println("Error al leer el archivo: " + e.getMessage());
         }
     }
-    public static void cargarJuegos (GestorReserva gestorReserva, File archivoReserva) {
+
+    public static void cargarJuegos(GestorReserva gestorReserva, File archivoReserva) {
         try {
             BufferedReader reader = new BufferedReader(new FileReader(archivoReserva));
             String juego;
@@ -64,5 +66,6 @@ public class GestorArchivos {
         } catch (IOException e) {
             System.out.println("Error al leer el archivo: " + e.getMessage());
         }
+    }
 }
 
