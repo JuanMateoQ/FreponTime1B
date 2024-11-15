@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.frepontime.RegisterController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.controllers.RegistroController">
     <top>
         <!-- Encabezado con imagen decorativa y espacio para avatar -->
         <AnchorPane prefHeight="151.0" prefWidth="900.0" style="-fx-background-color: #133E87;">
@@ -38,7 +38,7 @@
                         <Font name="OCR A Extended" size="14.0" />
                     </font>
                 </Label>
-                <TextField fx:id="fullNameTextField" layoutX="297.0" layoutY="77.0" prefHeight="30.0" prefWidth="420.0" promptText="Nombre Completo">
+                <TextField fx:id="nombreCompletoField" layoutX="297.0" layoutY="77.0" prefHeight="30.0" prefWidth="420.0" promptText="Nombre Completo">
                <font>
                   <Font name="OCR A Extended" size="12.0" />
                </font>
@@ -56,25 +56,13 @@
                </font>
             </TextField>
 
-                      <!-- Campo de Código Único -->
-                <Label layoutX="160.0" layoutY="217.0" style="-fx-text-fill: #133E87;" text="Código Único:">
-                    <font>
-                        <Font name="OCR A Extended" size="14.0" />
-                    </font>
-                </Label>
-                <TextField fx:id="uniqueCodeTextField" layoutX="297.0" layoutY="243.0" prefHeight="30.0" prefWidth="420.0" promptText="Código Único">
-               <font>
-                  <Font name="OCR A Extended" size="12.0" />
-               </font>
-            </TextField>
-
                       <!-- Campo de Facultad -->
-                <Label layoutX="172.0" layoutY="300.0" style="-fx-text-fill: #133E87;" text="Facultad:">
+                <Label layoutX="172.0" layoutY="266.0" style="-fx-text-fill: #133E87;" text="Facultad:">
                     <font>
                         <Font name="OCR A Extended" size="14.0" />
                     </font>
                 </Label>
-                <TextField fx:id="facultyTextField" layoutX="297.0" layoutY="316.0" prefHeight="30.0" prefWidth="420.0" promptText="Facultad">
+                <TextField fx:id="facultadTextField" layoutX="297.0" layoutY="287.0" prefHeight="30.0" prefWidth="420.0" promptText="Facultad">
                <font>
                   <Font name="OCR A Extended" size="12.0" />
                </font>
@@ -93,14 +81,14 @@
             </TextField>
 
                       <!-- Botón de Registrarse -->
-                <Button fx:id="registerButton" layoutX="202.0" layoutY="466.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: #133E87;" text="Registrarse" textFill="WHITE">
+                <Button fx:id="registerButton" layoutX="202.0" layoutY="466.0" mnemonicParsing="false" onAction="#registrar" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: #133E87;" text="Registrarse" textFill="WHITE">
                     <font>
                         <Font name="OCR A Extended" size="14.0" />
                     </font>
                 </Button>
 
                       <!-- Botón de Regresar -->
-                <Button fx:id="backButton" layoutX="500.0" layoutY="466.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: #608BC1;" text="Regresar" textFill="WHITE">
+                <Button fx:id="regresarButton" layoutX="500.0" layoutY="466.0" mnemonicParsing="false" onAction="#regresar" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: #608BC1;" text="Regresar" textFill="WHITE">
                     <font>
                         <Font name="OCR A Extended" size="14.0" />
                     </font>
