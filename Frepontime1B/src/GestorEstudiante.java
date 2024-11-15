@@ -5,6 +5,7 @@ public class GestorEstudiante {
     public GestorEstudiante() {
         estudiantes = new ArrayList<>();
     }
+
     public void agregarEstudiante(Estudiante estudiante) {
         if (buscarEstudiante(estudiante.getUsuario()) != null) {
             System.out.println("El estudiante con usuario: " + estudiante.getUsuario()
@@ -15,6 +16,7 @@ public class GestorEstudiante {
         System.out.println("Se registrado un estudiante con éxito");
         System.out.println(estudiante);
     }
+
     public Estudiante buscarEstudiante(String usuario) {
         for (Estudiante estudiante : estudiantes) {
             if(estudiante.getUsuario().equals(usuario)) {
@@ -27,5 +29,8 @@ public class GestorEstudiante {
         for (Estudiante estudiante : estudiantes) {
             System.out.println(estudiante);
         }
+    }
+    public ArrayList<Estudiante> getEstudiantes() {
+        return estudiantes;
     }
 }
