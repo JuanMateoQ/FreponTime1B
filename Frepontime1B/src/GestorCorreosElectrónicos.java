@@ -4,8 +4,8 @@ import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
 public class GestorCorreosElectrónicos {
-    private String emailFrom = "cofrejuan44@gmail.com";
-    private String password = "oujaappomufusoil";
+    private String emailFrom = "frepontime@gmail.com";
+    private String password = "huhh evuo innn bfbe";
     private String asunto;
     private String cuerpo;
 
@@ -51,7 +51,7 @@ public class GestorCorreosElectrónicos {
             transport.connect(emailFrom, password);
             transport.sendMessage(msg, msg.getRecipients(Message.RecipientType.TO));
             transport.close();
-            System.out.print("\nSe envió el correo");
+            System.out.print("\nSe envió el correo\n");
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         }
