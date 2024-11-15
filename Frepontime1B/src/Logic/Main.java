@@ -1,3 +1,5 @@
+package Logic;
+
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -7,7 +9,7 @@ public class Main {
         GestorReserva gestor = new GestorReserva();
         //Buscar Juegos (Listar Juegos)
         System.out.println(gestor.getJuegosDisponibles());
-        Juego juego = new Juego();
+        Juego juego = gestor.getJuegosDisponibles().get(0);
         juego.crearJuego(gestor.getJuegosDisponibles().get(0));
 
         Horario horario = new Horario(LocalDate.now(), LocalTime.now(), Duration.ofHours(0).plusMinutes(30));

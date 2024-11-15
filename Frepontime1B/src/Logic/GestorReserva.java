@@ -8,9 +8,9 @@ public class GestorReserva {
 
     private static GestorReserva instance;
 
-    private GestorReserva(){
-        reservasDeEstudiantes = new ArrayList();
-        juegos = new ArrayList();
+    GestorReserva(){
+        reservasDeEstudiantes = new ArrayList<Reserva>();
+        juegos = new ArrayList<Juego>();
         //TODO: leer los atributos del txt
         //TODO: va a ser la clase principal, todos los demás gestores se inicializan aquí
     }
