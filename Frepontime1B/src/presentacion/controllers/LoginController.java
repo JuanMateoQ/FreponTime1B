@@ -24,7 +24,7 @@ public class LoginController {
     // Método para manejar el evento de inicio de sesión
     @FXML
     private void iniciarSesion(ActionEvent event) {
-        NavegacionInterfaces.cambiarVentana((Stage)loginButton.getScene().getWindow(), "/presentacion/views/Juegos.fxml", "Juegos");
+        NavegacionInterfaces.cambiarVentana((Stage)loginButton.getScene().getWindow(), "/presentacion/views/HorarioJuegos.fxml", "Juegos");
     }
 
     @FXML
