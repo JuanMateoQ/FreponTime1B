@@ -54,4 +54,12 @@ public class GestorReserva {
     public boolean iniciarSesion(String correo, String contrasena) {
         return gestorEstudiante.iniciarSesion(correo, contrasena);
     }
+
+    public boolean enviarCodigo(Estudiante estudianteAux) {
+        return gestorEstudiante.enviarCodigo(estudianteAux);
+    }
+
+    public boolean buscarEstudiante(String usuario) {
+        return gestorEstudiante.buscarEstudiante(usuario);
+    }
 }

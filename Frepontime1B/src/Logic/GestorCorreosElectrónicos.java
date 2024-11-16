@@ -58,14 +58,15 @@ public class GestorCorreosElectrónicos {
             throw new RuntimeException(e);
         }
     }
-    public void enviarMensajeDeVerificaciónDeRegistro(String correo, String códigoVerificación, String usuario){
+    public boolean enviarMensajeDeVerificaciónDeRegistro(String correo, String códigoVerificación, String usuario){
         // Verificar si el correo cumple con el dominio "@epn.edu.ec"
         if (!correo.endsWith("@epn.edu.ec")) {
             System.out.println("Error: El correo debe pertenecer a un estudiante de la EPN");
-            return;
+            return false;
         }
         crearCorreo(correo, códigoVerificación,usuario);
         enviarCorreo();
+        return true;
     }
 
 }

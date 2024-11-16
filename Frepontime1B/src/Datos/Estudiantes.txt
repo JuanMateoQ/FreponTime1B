@@ -1,6 +1,1 @@
 Cofre Juan juanChest juan.cofre@epn.edu.ec 123456
-uno Pepe pepe1 correopepe1@gmail.com 1234
-dos Pepe pepe2 correopepe2@gmail.com 1234
-tres Pepe pepe3 correopepe3@gmail.com 1234
-cuatro Pepe pepe4 correopepe4@gmail.com 1234
-Huilca Fernando FH fernando2@gmail.com 1234

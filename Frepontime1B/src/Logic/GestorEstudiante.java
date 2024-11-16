@@ -12,7 +12,7 @@ public class GestorEstudiante {
     }
 
     public void agregarEstudiante(Estudiante estudiante) {
-        if (buscarEstudiante(estudiante.getUsuario()) != null) {
+        if (buscarEstudiante(estudiante.getUsuario())) {
             System.out.println("El estudiante con usuario: " + estudiante.getUsuario()
                     + " ya está registrado");
             return;
@@ -24,30 +24,40 @@ public class GestorEstudiante {
     public boolean iniciarSesion (String correo, String contrasena){
         for(Estudiante estudiante: estudiantes){
             if(estudiante.getCorreoElectrónico().compareTo(correo) == 0 && estudiante.getContraseña().compareTo(contrasena) ==0){
+                estudiante.setEnLinea(true);
                 return true;
             }
         }
         return false;
     }
 
-    public Estudiante buscarEstudiante(String usuario) {
+    public boolean buscarEstudiante(String usuario) {
         for (Estudiante estudiante : estudiantes) {
             if(estudiante.getUsuario().equals(usuario)) {
-                return estudiante;
+                return true;
             }
         }
-        return null;
+        return false;
     }
     public void imprimirEstudiantes() {
         for (Estudiante estudiante : estudiantes) {
             System.out.println(estudiante);
         }
     }
-    private static String generarCódigoRandom(int limiteInferior, int limiteSuperior) {
+    private String generarCódigoRandom(int limiteInferior, int limiteSuperior) {
         Random random = new Random();
         return Integer.toString(random.nextInt(limiteSuperior - limiteInferior + 1) + limiteInferior);
     }
     public ArrayList<Estudiante> getEstudiantes() {
         return estudiantes;
+    }
+
+    public boolean enviarCodigo(Estudiante estudiante) {
+        GestorCorreosElectrónicos correosElectrónicos = new GestorCorreosElectrónicos();
+        if(!correosElectrónicos.enviarMensajeDeVerificaciónDeRegistro(estudiante.getCorreoElectrónico(),
+                generarCódigoRandom(1000,9999), estudiante.getUsuario())){
+            return false;
+        }
+        return true;
     }
 }

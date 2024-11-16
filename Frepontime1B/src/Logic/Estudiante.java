@@ -9,7 +9,7 @@ public class Estudiante {
 
     private boolean enLínea;
 
-    public Estudiante(String apellido, String nombre,String usuario, String correoElectrónico, String contraseña) {
+    public Estudiante(String apellido, String nombre, String usuario, String correoElectrónico, String contraseña) {
         this.apellido = apellido;
         this.nombre = nombre;
         this.usuario = usuario;
@@ -36,5 +36,9 @@ public class Estudiante {
 
     public String getContraseña() {
         return contraseña;
+    }
+
+    public void setEnLinea(boolean enLínea) {
+        this.enLínea = enLínea;
     }
 }
