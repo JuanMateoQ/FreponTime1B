@@ -17,7 +17,7 @@ public class GestorEstudiante {
     }
 
     public void agregarEstudiante(Estudiante estudiante) {
-        if (buscarEstudiante(estudiante.getUsuario())) {
+        if (buscarEstudiante(estudiante.getUsuario(), correoElectrónico)) {
             System.out.println("El estudiante con usuario: " + estudiante.getUsuario()
                     + " ya está registrado");
             return;
@@ -78,5 +78,13 @@ public class GestorEstudiante {
     public void guardarPosibleEstudiante() {
         agregarEstudiante(this.estudianteAux);
         GestorArchivos.guardarEstudiantes(this, estudianteFile);
+    }
+
+    public boolean buscarCorreo(String correoElectrónico) {
+        for (Estudiante estudiante : estudiantes) {
+            if(estudiante.getCorreoElectrónico().equals(correoElectrónico)){
+                return true;
+            }
+        }
     }
 }

@@ -74,4 +74,8 @@ public class GestorReserva {
     public void guardarPosibleEstudiante() {
         gestorEstudiante.guardarPosibleEstudiante();
     }
+
+    public boolean buscarCorreo(String correoElectrónico) {
+        return gestorEstudiante.buscarCorreo(correoElectrónico);
+    }
 }

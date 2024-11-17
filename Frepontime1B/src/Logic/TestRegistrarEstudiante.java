@@ -21,12 +21,12 @@ public class TestRegistrarEstudiante {
         System.out.println("====================Búsqueda de un estudiante====================");
         String usuarioEstudianteBuscado = "pepe789";
 
-        if(gestorEstudiante.buscarEstudiante(usuarioEstudianteBuscado)) {
+        if(gestorEstudiante.buscarEstudiante(usuarioEstudianteBuscado, correoElectrónico)) {
             System.out.println("Logic.Estudiante encontrado");
         } else{
             System.out.println("No existe estudiante con el usuario " + usuarioEstudianteBuscado);
         }
-        System.out.println(gestorEstudiante.buscarEstudiante(usuarioEstudianteBuscado));
+        System.out.println(gestorEstudiante.buscarEstudiante(usuarioEstudianteBuscado, correoElectrónico));
     }
 
     private static void registrarEstudiante(GestorEstudiante gestorEstudiante) {
