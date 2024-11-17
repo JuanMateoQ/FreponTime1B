@@ -17,7 +17,7 @@ public class GestorEstudiante {
     }
 
     public void agregarEstudiante(Estudiante estudiante) {
-        if (buscarEstudiante(estudiante.getUsuario(), correoElectrónico)) {
+        if (buscarEstudiante(estudiante.getUsuario())) {
             System.out.println("El estudiante con usuario: " + estudiante.getUsuario()
                     + " ya está registrado");
             return;
@@ -86,5 +86,6 @@ public class GestorEstudiante {
                 return true;
             }
         }
+        return false;
     }
 }
