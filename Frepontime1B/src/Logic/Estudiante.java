@@ -45,4 +45,8 @@ public class Estudiante {
     public void setEnLinea(boolean enLínea) {
         this.enLínea = enLínea;
     }
+
+    public void setNumeroDeReserva(int numeroDeReserva) {
+        this.numeroDeReserva.add(numeroDeReserva);
+    }
 }

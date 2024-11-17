@@ -9,6 +9,7 @@ public class GestorReserva {
     private GestorEstudiante gestorEstudiante;
     private File reservasFile;
     private File juegosFile;
+    private File reservasEstudiantesFile;
 
 
     private static GestorReserva instance;
@@ -17,9 +18,14 @@ public class GestorReserva {
         reservasDeEstudiantes = new ArrayList<Reserva>();
         juegos = new ArrayList<Juego>();
         gestorEstudiante = new GestorEstudiante();
+
+        reservasFile = new File("src/Datos/Reserva.txt");
+        juegosFile = new File("src/Datos/Juegos.txt");
+        reservasEstudiantesFile = new File("src/Datos/ReservasDeEstudiante.txt");
+
         GestorArchivos.cargarJuegos(this, juegosFile);
         GestorArchivos.cargarReservas(this, reservasFile);
-        //TODO: va a ser la clase principal, todos los demás gestores se inicializan aquí
+        GestorArchivos.cargarReservasDeEstudiantes(this, reservasEstudiantesFile);
     }
     public static GestorReserva getInstance() {
         if (instance == null) {
@@ -29,6 +35,7 @@ public class GestorReserva {
     }
 
     public boolean crearReserva(Juego juego, Horario horario) {
+        if()
         if(existirReservasDuplicadas(juego, horario)){
             return false;
         }
@@ -77,5 +84,9 @@ public class GestorReserva {
 
     public void agregarReserva(Reserva reserva) {
         this.reservasDeEstudiantes.add(reserva);
+    }
+
+    public void agregarReservasAlEstudiante(String usuarioEstudiante, int numeroDeReserva) {
+        gestorEstudiante.agregarReservas(usuarioEstudiante, numeroDeReserva);
     }
 }

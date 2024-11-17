@@ -146,5 +146,25 @@ public class GestorArchivos {
             System.out.println("Error al escribir en el archivo: " + e.getMessage());
         }
     }
+
+    public static void cargarReservasDeEstudiantes(GestorReserva gestorReserva, File reservasDeEstudiantes) {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(reservasDeEstudiantes));
+            String estudiante;
+            String usuarioEstudiante;
+            int numeroDeReserva;
+
+            while ((estudiante = reader.readLine()) != null) {
+                // Procesar la línea
+                usuarioEstudiante = estudiante.split(" ")[0];
+                numeroDeReserva =Integer.parseInt(estudiante.split(" ")[1]);
+                gestorReserva.agregarReservasAlEstudiante(usuarioEstudiante, numeroDeReserva);
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            System.out.println("Error al leer el archivo: " + e.getMessage());
+        }
+    }
 }
 
