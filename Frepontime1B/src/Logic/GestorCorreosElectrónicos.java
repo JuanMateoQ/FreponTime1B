@@ -5,6 +5,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
+
 public class GestorCorreosElectrónicos {
     private String emailFrom = "frepontime@gmail.com";
     private String password = "huhh evuo innn bfbe";

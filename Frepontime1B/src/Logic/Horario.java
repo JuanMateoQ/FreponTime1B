@@ -9,6 +9,15 @@ public class Horario {
     private LocalTime hora;
     private Duration tiempo;
 
+    @Override
+    public String toString() {
+        return "Horario{" +
+                "fecha=" + fecha +
+                ", hora=" + hora +
+                ", tiempo=" + tiempo +
+                '}';
+    }
+
     public Horario(LocalDate fecha, LocalTime hora, Duration tiempo) {
         this.fecha = fecha;
         this.hora = hora;

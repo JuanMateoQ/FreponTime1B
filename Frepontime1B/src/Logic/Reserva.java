@@ -5,11 +5,12 @@ public class Reserva {
     private boolean estadoDeReserva;
     private Horario horario;
     private Juego juego;
+    private Pago pagoReserva;
 
     public Reserva(int numero, Juego juego, Horario horario) {
         this.numero = numero;
         this.juego = juego;
-        this.estadoDeReserva = true;
+        this.estadoDeReserva = false;
         this.horario = horario;
     }
 
@@ -19,5 +20,26 @@ public class Reserva {
 
     public Horario getHorario() {
         return this.horario;
+    }
+
+    public boolean isEstadoDeReserva() {
+        return estadoDeReserva;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setPago(Pago nuevoPago) {
+        pagoReserva = nuevoPago;
+    }
+
+    @Override
+    public String toString() {
+        return "Reserva{" +
+                "numero=" + numero +
+                "\n juego=" + juego +
+                "\n horario=" + horario +
+                '}';
     }
 }

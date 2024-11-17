@@ -12,7 +12,7 @@ public class GestorEstudiante {
 
     public GestorEstudiante() {
         estudiantes = new ArrayList<>();
-        estudianteFile = new File("src/Datos/Estudiantes.txt");
+        estudianteFile = new File("FreponTime1B/src/Datos/Estudiantes.txt");
         GestorArchivos.cargarEstudiantes(this, estudianteFile);
     }
 
@@ -30,6 +30,7 @@ public class GestorEstudiante {
         for(Estudiante estudiante: estudiantes){
             if(estudiante.getCorreoElectrónico().compareTo(correo) == 0 && estudiante.getContraseña().compareTo(contrasena) ==0){
                 estudiante.setEnLinea(true);
+                System.out.printf("Inicio de sesión correcto");
                 return true;
             }
         }

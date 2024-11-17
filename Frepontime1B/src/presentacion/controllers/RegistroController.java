@@ -4,6 +4,7 @@ import Logic.Estudiante;
 import Logic.GestorReserva;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -39,13 +40,13 @@ public class RegistroController {
         Estudiante estudianteAux = new Estudiante(apellidoAux, nombreAux, usuarioAux, emailAux, contraseniaAux);
         if(gestorReserva.buscarEstudiante(estudianteAux.getUsuario())){
             NavegacionInterfaces.mostrarAlerta("Operación Fallida", "El usuario ingresado ya se " +
-                    "encuentra registrado, cambielo por otro...");
+                    "encuentra registrado, cambielo por otro...", Alert.AlertType.ERROR);
             return;
         }
 
         if(!gestorReserva.enviarCodigo(estudianteAux)){
             NavegacionInterfaces.mostrarAlerta("Operación Fallida", "El Correo Proporcionado no pertenece a " +
-                    "la Universidad...");
+                    "la Universidad...", Alert.AlertType.ERROR);
             return;
         }
         gestorReserva.preservarPosibleEstudiante(estudianteAux);

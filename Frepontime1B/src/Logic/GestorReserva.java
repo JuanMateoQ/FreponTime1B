@@ -1,5 +1,7 @@
 package Logic;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class GestorReserva {
@@ -9,7 +11,7 @@ public class GestorReserva {
 
     private static GestorReserva instance;
 
-    private GestorReserva(){
+    GestorReserva(){
         reservasDeEstudiantes = new ArrayList<Reserva>();
         juegos = new ArrayList<Juego>();
         gestorEstudiante = new GestorEstudiante();
@@ -27,8 +29,17 @@ public class GestorReserva {
             return false;
         }
         //TODO: verificación de multas.
-        Reserva aux = new Reserva(reservasDeEstudiantes.size(), juego, horario);
-        reservasDeEstudiantes.add(aux);
+        Estudiante estudiante = null;
+        for(Estudiante estudianteEnLinea: gestorEstudiante.getEstudiantes()){
+            if(estudianteEnLinea.isEnLínea()){
+                estudiante = estudianteEnLinea;
+                Reserva nuevaReserva = new Reserva(reservasDeEstudiantes.size(), juego, horario);
+                estudiante.setReserva(nuevaReserva);
+                reservasDeEstudiantes.add(nuevaReserva);
+                GestorPago.crearPagoDeReserva(nuevaReserva, reservasDeEstudiantes, juego);
+                return true;
+            }
+        }
         return true;
     }
 
@@ -74,4 +85,12 @@ public class GestorReserva {
     public void guardarPosibleEstudiante() {
         gestorEstudiante.guardarPosibleEstudiante();
     }
+    public void imprimirEstudianteEnLinea(){
+        for(Estudiante estudiante: gestorEstudiante.getEstudiantes()){
+            if(estudiante.isEnLínea()){
+                System.out.println("\nEstudiante en línea: \n" + estudiante);
+            }
+        }
+    }
+
 }

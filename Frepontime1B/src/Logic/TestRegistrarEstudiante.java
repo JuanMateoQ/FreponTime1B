@@ -7,7 +7,7 @@ import java.util.Random;
 public class TestRegistrarEstudiante {
     public static void main(String[] args) {
         GestorEstudiante gestorEstudiante = new GestorEstudiante();
-        File archivoEstudiante = new File("src/Datos/Estudiantes.txt");
+        File archivoEstudiante = new File("Frepontime1B/src/Datos/Estudiantes.txt");
         //GestorArchivos.cargarEstudiantes(gestorEstudiante, archivoEstudiante);
         registrarEstudiante(gestorEstudiante);
         buscarEstudiante(gestorEstudiante);
@@ -34,8 +34,8 @@ public class TestRegistrarEstudiante {
 
         // Información por pedir
         String códigoVerificación = generarCódigoRandom(1000, 9999);
-        String correo = "juan.cofre@epn.edu.ec";
-        String usuario = "juanChest";
+        String correo = "juan.quisilema@epn.edu.ec";
+        String usuario = "juanQ";
         String nombre = "Juan";
         String apellido = "Cofre";
         String contraseña = "123456";

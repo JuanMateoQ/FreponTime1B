@@ -1,2 +1,2 @@
-Cofre Juan juanChest juan.cofre@epn.edu.ec 123456
+Cofre Juan JuanChest juan.cofre@epn.edu.ec 123456
 Quisilema Mateo JuanMateo juan.quisilema@epn.edu.ec 12345

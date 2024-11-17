@@ -2,6 +2,7 @@ package presentacion.controllers;
 
 import Logic.GestorReserva;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -25,7 +26,7 @@ public class LoginController {
     @FXML
     private void iniciarSesion(ActionEvent event) {
         if(!gestorReserva.iniciarSesion(this.correoElectronico.getText(), this.contrasenia.getText())){
-            NavegacionInterfaces.mostrarAlerta("Error al Iniciar","Sus credenciales no son correctas");
+            NavegacionInterfaces.mostrarAlerta("Error al Iniciar","Sus credenciales no son correctas", Alert.AlertType.ERROR);
             return;
         }
         NavegacionInterfaces.cambiarVentana((Stage)loginButton.getScene().getWindow(), "/presentacion/views/Juegos.fxml", "Juegos");

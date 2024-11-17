@@ -21,13 +21,13 @@ public class NavegacionInterfaces {
             currentStage.setTitle(titulo);
 
         } catch (IOException e) {
-            mostrarAlerta("Error", "No se pudo cargar la interfaz de usuario.");
+            mostrarAlerta("Error", "No se pudo cargar la interfaz de usuario.", Alert.AlertType.ERROR);
             e.printStackTrace();
         }
     }
 
-    public static void mostrarAlerta(String titulo, String mensaje) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
+    public static void mostrarAlerta(String titulo, String mensaje, Alert.AlertType tipo) {
+        Alert alert = new Alert(tipo);
         alert.setTitle(titulo);
         alert.setHeaderText(null);
         alert.setContentText(mensaje);

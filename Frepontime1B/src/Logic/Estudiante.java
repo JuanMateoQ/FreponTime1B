@@ -6,6 +6,7 @@ public class Estudiante {
     private String usuario;
     private String correoElectrónico;
     private String contraseña;
+    private Reserva reserva;
 
     private boolean enLínea;
 
@@ -16,6 +17,10 @@ public class Estudiante {
         this.correoElectrónico = correoElectrónico;
         this.contraseña = contraseña;
         this.enLínea = false;
+    }
+
+    public boolean isEnLínea() {
+        return enLínea;
     }
 
     public String getNombre() {
@@ -40,5 +45,26 @@ public class Estudiante {
 
     public void setEnLinea(boolean enLínea) {
         this.enLínea = enLínea;
+    }
+
+    public Reserva getReserva() {
+        return reserva;
+    }
+
+    public void setReserva(Reserva nuevaReserva) {
+        this.reserva = nuevaReserva;
+    }
+
+    @Override
+    public String toString() {
+        return "Estudiante{" +
+                "apellido='" + apellido + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", usuario='" + usuario + '\'' +
+                ", correoElectrónico='" + correoElectrónico + '\'' +
+                ", contraseña='" + contraseña + '\'' +
+                ", enLínea=" + enLínea +
+                "\n reserva=" + reserva +
+                '}';
     }
 }
