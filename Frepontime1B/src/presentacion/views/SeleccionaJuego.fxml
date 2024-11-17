@@ -13,11 +13,16 @@
    <top>
       <Pane prefHeight="97.0" prefWidth="600.0" style="-fx-background-color: #133E87;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="141.0" layoutY="32.0" text="SELECCIONAR JUEGO" textFill="#fffcfc">
+            <Label layoutX="141.0" layoutY="42.0" text="SELECCIONAR JUEGO" textFill="#fffcfc">
                <font>
-                  <Font name="OCR A Extended" size="31.0" />
+                  <Font name="OCR A Extended" size="34.0" />
                </font>
             </Label>
+            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="109.0" style="-fx-background-color: #F3F3E0;" text="Cerrar sesión" textFill="#131313">
+               <font>
+                  <Font name="OCR A Extended" size="10.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
    </top>
@@ -30,7 +35,7 @@
                   <Image url="@../../../../../../../Documents/EDA%20II/Nueva%20carpeta/BILLAR.png" />
                </image>
             </ImageView>
-            <Button layoutX="54.0" layoutY="240.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="179.0" style="-fx-background-color: #A0D683;" text="Billar">
+            <Button layoutX="54.0" layoutY="240.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="179.0" style="-fx-background-color: #A0D683;" text="Billar" textAlignment="CENTER">
                <font>
                   <Font name="OCR A Extended" size="20.0" />
                </font>
