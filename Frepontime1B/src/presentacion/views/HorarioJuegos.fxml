@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <Pane prefHeight="155.0" prefWidth="900.0" style="-fx-background-color: #133E87;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="239.0" layoutY="51.0" text="Horario Juegos" textFill="WHITE">
+               <font>
+                  <Font name="OCR A Extended" size="50.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </top>
+   <right>
+      <Pane prefHeight="545.0" prefWidth="450.0" style="-fx-background-color: #608BC1;" BorderPane.alignment="CENTER">
+         <children>
+            <CheckBox layoutX="115.0" layoutY="81.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="238.0" text="   09:00am a 10:00am">
+               <font>
+                  <Font name="OCR A Extended" size="14.0" />
+               </font>
+            </CheckBox>
+            <CheckBox layoutX="115.0" layoutY="112.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="238.0" text="   10:00am a 11:00am">
+               <font>
+                  <Font name="OCR A Extended" size="14.0" />
+               </font>
+            </CheckBox>
+            <CheckBox layoutX="115.0" layoutY="145.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="238.0" text="   11:00am a 12:00pm">
+               <font>
+                  <Font name="OCR A Extended" size="14.0" />
+               </font>
+            </CheckBox>
+            <CheckBox layoutX="115.0" layoutY="178.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="238.0" text="   12:00pm a 13:00pm">
+               <font>
+                  <Font name="OCR A Extended" size="14.0" />
+               </font>
+            </CheckBox>
+            <CheckBox layoutX="115.0" layoutY="211.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="238.0" text="   13:00pm a 14:00pm">
+               <font>
+                  <Font name="OCR A Extended" size="14.0" />
+               </font>
+            </CheckBox>
+            <CheckBox layoutX="115.0" layoutY="282.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="238.0" text="   15:00pm a 16:00pm">
+               <font>
+                  <Font name="OCR A Extended" size="14.0" />
+               </font>
+            </CheckBox>
+            <CheckBox layoutX="115.0" layoutY="247.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="238.0" text="   14:00pm a 15:00pm">
+               <font>
+                  <Font name="OCR A Extended" size="14.0" />
+               </font>
+            </CheckBox>
+            <CheckBox layoutX="115.0" layoutY="316.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="238.0" text="   16:00pm a 17:00pm">
+               <font>
+                  <Font name="OCR A Extended" size="14.0" />
+               </font>
+            </CheckBox>
+            <CheckBox layoutX="115.0" layoutY="346.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="238.0" text="   17:00pm a 18:00pm">
+               <font>
+                  <Font name="OCR A Extended" size="14.0" />
+               </font>
+            </CheckBox>
+            <Button layoutX="105.0" layoutY="411.0" mnemonicParsing="false" style="-fx-background-color: #F3F3E0;" text="Reservar Ping Pong">
+               <font>
+                  <Font name="OCR A Extended" size="21.0" />
+               </font>
+            </Button>
+            <Label layoutX="102.0" layoutY="23.0" text="Juego Ping Pong" textFill="WHITE">
+               <font>
+                  <Font name="OCR A Extended" size="27.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </right>
+   <left>
+      <Pane prefHeight="545.0" prefWidth="450.0" style="-fx-background-color: #CBDCEB;" BorderPane.alignment="CENTER">
+         <children>
+            <CheckBox layoutX="106.0" layoutY="89.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="238.0" text="   09:00am a 10:00am">
+               <font>
+                  <Font name="OCR A Extended" size="14.0" />
+               </font>
+            </CheckBox>
+            <CheckBox layoutX="106.0" layoutY="120.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="238.0" text="   10:00am a 11:00am">
+               <font>
+                  <Font name="OCR A Extended" size="14.0" />
+               </font>
+            </CheckBox>
+            <CheckBox layoutX="106.0" layoutY="156.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="238.0" text="   11:00am a 12:00pm">
+               <font>
+                  <Font name="OCR A Extended" size="14.0" />
+               </font>
+            </CheckBox>
+            <CheckBox layoutX="106.0" layoutY="191.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="238.0" text="   12:00pm a 13:00pm">
+               <font>
+                  <Font name="OCR A Extended" size="14.0" />
+               </font>
+            </CheckBox>
+            <CheckBox layoutX="106.0" layoutY="222.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="238.0" text="   13:00pm a 14:00pm">
+               <font>
+                  <Font name="OCR A Extended" size="14.0" />
+               </font>
+            </CheckBox>
+            <CheckBox layoutX="106.0" layoutY="253.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="238.0" text="   14:00pm a 15:00pm">
+               <font>
+                  <Font name="OCR A Extended" size="14.0" />
+               </font>
+            </CheckBox>
+            <CheckBox layoutX="106.0" layoutY="282.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="238.0" text="   15:00pm a 16:00pm">
+               <font>
+                  <Font name="OCR A Extended" size="14.0" />
+               </font>
+            </CheckBox>
+            <CheckBox layoutX="106.0" layoutY="343.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="238.0" text="   17:00pm a 18:00pm">
+               <font>
+                  <Font name="OCR A Extended" size="14.0" />
+               </font>
+            </CheckBox>
+            <Button layoutX="109.0" layoutY="415.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="232.0" style="-fx-background-color: #F3F3E0;" text="Reservar Billar">
+               <font>
+                  <Font name="OCR A Extended" size="21.0" />
+               </font>
+            </Button>
+            <CheckBox layoutX="106.0" layoutY="312.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="238.0" text="   16:00pm a 17:00pm">
+               <font>
+                  <Font name="OCR A Extended" size="14.0" />
+               </font>
+            </CheckBox>
+            <Label layoutX="109.0" layoutY="30.0" text="Juego Billar" textFill="WHITE">
+               <font>
+                  <Font name="OCR A Extended" size="28.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </left>
+</BorderPane>
