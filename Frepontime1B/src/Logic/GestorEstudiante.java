@@ -6,9 +6,14 @@ import java.util.Random;
 
 public class GestorEstudiante {
     private ArrayList<Estudiante> estudiantes;
+    private String codigoDeVerificacion;
+    private Estudiante estudianteAux;
+    private File estudianteFile;
+
     public GestorEstudiante() {
         estudiantes = new ArrayList<>();
-        GestorArchivos.cargarEstudiantes(this, new File("src/Datos/Estudiantes.txt"));
+        estudianteFile = new File("src/Datos/Estudiantes.txt");
+        GestorArchivos.cargarEstudiantes(this, estudianteFile);
     }
 
     public void agregarEstudiante(Estudiante estudiante) {
@@ -54,10 +59,24 @@ public class GestorEstudiante {
 
     public boolean enviarCodigo(Estudiante estudiante) {
         GestorCorreosElectrónicos correosElectrónicos = new GestorCorreosElectrónicos();
+        this.codigoDeVerificacion = generarCódigoRandom(1000,9999);
         if(!correosElectrónicos.enviarMensajeDeVerificaciónDeRegistro(estudiante.getCorreoElectrónico(),
-                generarCódigoRandom(1000,9999), estudiante.getUsuario())){
+                this.codigoDeVerificacion, estudiante.getUsuario())){
             return false;
         }
         return true;
+    }
+
+    public boolean verificarCodigo(String codigo) {
+        return this.codigoDeVerificacion.compareTo(codigo) == 0;
+    }
+
+    public void preservarPosibleEstudiante(Estudiante estudianteAux) {
+        this.estudianteAux = estudianteAux;
+    }
+
+    public void guardarPosibleEstudiante() {
+        agregarEstudiante(this.estudianteAux);
+        GestorArchivos.guardarEstudiantes(this, estudianteFile);
     }
 }

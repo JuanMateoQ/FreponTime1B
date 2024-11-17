@@ -48,6 +48,8 @@ public class RegistroController {
                     "la Universidad...");
             return;
         }
+        gestorReserva.preservarPosibleEstudiante(estudianteAux);
+        NavegacionInterfaces.cambiarVentana((Stage) registerButton.getScene().getWindow(), "/presentacion/views/VerificaciónDeCodigo.fxml", "Verificacion");
 
     }
     @FXML

@@ -62,4 +62,16 @@ public class GestorReserva {
     public boolean buscarEstudiante(String usuario) {
         return gestorEstudiante.buscarEstudiante(usuario);
     }
+
+    public boolean verificarCodigo(String codigo) {
+        return gestorEstudiante.verificarCodigo(codigo);
+    }
+
+    public void preservarPosibleEstudiante(Estudiante estudianteAux) {
+        gestorEstudiante.preservarPosibleEstudiante(estudianteAux);
+    }
+
+    public void guardarPosibleEstudiante() {
+        gestorEstudiante.guardarPosibleEstudiante();
+    }
 }
