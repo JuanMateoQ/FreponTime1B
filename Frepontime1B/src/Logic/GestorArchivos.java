@@ -166,5 +166,28 @@ public class GestorArchivos {
             System.out.println("Error al leer el archivo: " + e.getMessage());
         }
     }
+
+    public static void cargarPagos(GestorPago gestorPago, File pagos){
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(pagos));
+            String pago;
+            int nPago;
+            double monto;
+            boolean estadoPago;
+
+
+            while ((pago = reader.readLine()) != null) {
+                // Procesar la línea
+                nPago = Integer.parseInt(pago.split(" ")[0]);
+                monto = Double.parseDouble(pago.split(" ")[1]);
+                estadoPago = Boolean.parseBoolean(pago.split(" ")[2]);
+            //    gestorPago.agregarPagos(new Pago(nPago, monto, estadoPago, new Ticket()));
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            System.out.println("Error al leer el archivo: " + e.getMessage());
+        }
+    }
 }
 

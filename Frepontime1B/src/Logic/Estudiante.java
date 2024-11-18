@@ -9,11 +9,11 @@ public class Estudiante {
     private String correoElectrónico;
     private String contraseña;
 
-    private ArrayList<Integer> numeroDeReserva;
+    private ArrayList<Integer> numerosDeReservas;
     private boolean enLínea;
 
     public Estudiante(String apellido, String nombre, String usuario, String correoElectrónico, String contraseña) {
-        numeroDeReserva = new ArrayList<>();
+        numerosDeReservas = new ArrayList<>();
         this.apellido = apellido;
         this.nombre = nombre;
         this.usuario = usuario;
@@ -50,7 +50,27 @@ public class Estudiante {
         return this.enLínea;
     }
 
-    public void setNumeroDeReserva(int numeroDeReserva) {
-        this.numeroDeReserva.add(numeroDeReserva);
+    public void setNumerosDeReservas(int numerosDeReservas) {
+        this.numerosDeReservas.add(numerosDeReservas);
+    }
+
+    public boolean isEnLínea() {
+        return enLínea;
+    }
+
+    public ArrayList<Integer> getNumerosDeReservas() {
+        return numerosDeReservas;
+    }
+
+    @Override
+    public String toString() {
+        return "Estudiante{" +
+                "apellido='" + apellido + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", usuario='" + usuario + '\'' +
+                ", correoElectrónico='" + correoElectrónico + '\'' +
+                ", enLínea=" + enLínea +
+                ", numerosDeReservas=" + numerosDeReservas +
+                '}';
     }
 }

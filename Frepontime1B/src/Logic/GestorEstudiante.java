@@ -12,7 +12,7 @@ public class GestorEstudiante {
 
     public GestorEstudiante() {
         estudiantes = new ArrayList<>();
-        estudianteFile = new File("src/Datos/Estudiantes.txt");
+        estudianteFile = new File("FreponTime1B/src/Datos/Estudiantes.txt");
         GestorArchivos.cargarEstudiantes(this, estudianteFile);
     }
 
@@ -30,6 +30,7 @@ public class GestorEstudiante {
         for(Estudiante estudiante: estudiantes){
             if(estudiante.getCorreoElectrónico().compareTo(correo) == 0 && estudiante.getContraseña().compareTo(contrasena) ==0){
                 estudiante.setEnLinea(true);
+                System.out.println("Se ha iniciado sesion");
                 return true;
             }
         }
@@ -102,7 +103,7 @@ public class GestorEstudiante {
     public void agregarReservas(String usuarioEstudiante, int numeroDeReserva) {
         for(int i = 0; i < estudiantes.size(); i++){
             if(estudiantes.get(i).getUsuario().equals(usuarioEstudiante)){
-                estudiantes.get(i).setNumeroDeReserva(numeroDeReserva);
+                estudiantes.get(i).setNumerosDeReservas(numeroDeReserva);
                 return;
             }
         }

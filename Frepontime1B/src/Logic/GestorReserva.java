@@ -7,6 +7,7 @@ public class GestorReserva {
     private ArrayList<Reserva> reservasDeEstudiantes;
     private ArrayList<Juego> juegos;
     private GestorEstudiante gestorEstudiante;
+    private GestorPago gestorPago;
     private File reservasFile;
     private File juegosFile;
     private File reservasEstudiantesFile;
@@ -18,10 +19,11 @@ public class GestorReserva {
         reservasDeEstudiantes = new ArrayList<Reserva>();
         juegos = new ArrayList<Juego>();
         gestorEstudiante = new GestorEstudiante();
+        gestorPago = new GestorPago();
 
-        reservasFile = new File("src/Datos/Reserva.txt");
-        juegosFile = new File("src/Datos/Juegos.txt");
-        reservasEstudiantesFile = new File("src/Datos/ReservasDeEstudiante.txt");
+        reservasFile = new File("FreponTime1B/src/Datos/Reserva.txt");
+        juegosFile = new File("FreponTime1B/src/Datos/Juegos.txt");
+        reservasEstudiantesFile = new File("FreponTime1B/src/Datos/ReservasDeEstudiante.txt");
 
         GestorArchivos.cargarJuegos(this, juegosFile);
         GestorArchivos.cargarReservas(this, reservasFile);
@@ -36,12 +38,20 @@ public class GestorReserva {
 
     public boolean crearReserva(Juego juego, Horario horario) {
         if(existirReservasDuplicadas(juego, horario)){
+            System.out.println("Ya existe una reserva para este juego y horario.");
             return false;
         }
-        //TODO: verificación de multas.
-        Reserva aux = new Reserva(reservasDeEstudiantes.size(), juego, horario);
-        reservasDeEstudiantes.add(aux);
-        return true;
+        for(Estudiante estudianteEnLínea: gestorEstudiante.getEstudiantes()){
+            if(estudianteEnLínea.isEnLínea()){
+                Reserva nuevaReserva = new Reserva(reservasDeEstudiantes.size(), juego, horario);
+                estudianteEnLínea.getNumerosDeReservas().add(nuevaReserva.getNumero());
+                reservasDeEstudiantes.add(nuevaReserva);
+
+                gestorPago.crearPagoDeReserva(nuevaReserva, reservasDeEstudiantes, juego);
+                return true;
+            }
+        }
+        return false;
     }
 
     private boolean existirReservasDuplicadas(Juego juego, Horario horario) {
@@ -102,7 +112,15 @@ public class GestorReserva {
         this.reservasDeEstudiantes.add(reserva);
     }
 
+    public GestorEstudiante getGestorEstudiante() {
+        return gestorEstudiante;
+    }
+
     public void agregarReservasAlEstudiante(String usuarioEstudiante, int numeroDeReserva) {
         gestorEstudiante.agregarReservas(usuarioEstudiante, numeroDeReserva);
+    }
+
+    public ArrayList<Reserva> getReservasDeEstudiantes() {
+        return reservasDeEstudiantes;
     }
 }
