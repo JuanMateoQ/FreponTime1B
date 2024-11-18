@@ -49,4 +49,8 @@ public class Juego {
     public double getTiempoPorHora() {
         return this.precioPorHora;
     }
+
+    public double getPrecioPorHora() {
+        return precioPorHora;
+    }
 }

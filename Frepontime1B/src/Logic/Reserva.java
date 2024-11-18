@@ -5,6 +5,7 @@ public class Reserva {
     private boolean estadoDeReserva;
     private Horario horario;
     private Juego juego;
+    private Pago pago;
 
     public Reserva(int numero, Juego juego, Horario horario) {
         this.numero = numero;
@@ -34,5 +35,16 @@ public class Reserva {
 
     public boolean gestEstadoDeReserva() {
         return this.estadoDeReserva;
+    }
+    public void setPago(Pago pago) {
+        this.pago = pago;
+    }
+
+    public Pago getPago() {
+        return pago;
+    }
+
+    public void setEstadoReserva(boolean estadoPago) {
+        this.estadoDeReserva = estadoPago;
     }
 }
