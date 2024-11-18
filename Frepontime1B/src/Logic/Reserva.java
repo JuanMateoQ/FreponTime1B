@@ -7,6 +7,7 @@ public class Reserva {
     private Juego juego;
     private Pago pagoReserva;
 
+
     public Reserva(int numero, Juego juego, Horario horario) {
         this.numero = numero;
         this.juego = juego;
@@ -40,6 +41,7 @@ public class Reserva {
                 "numero=" + numero +
                 "\n juego=" + juego +
                 "\n horario=" + horario +
+                "\n pagoReserva=" + pagoReserva +
                 '}';
     }
 }

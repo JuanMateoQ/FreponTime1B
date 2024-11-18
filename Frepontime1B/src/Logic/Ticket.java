@@ -13,6 +13,7 @@ public class Ticket {
         this.código = código;
         this.fechaReserva = fechaReserva;
         this.horaReserva = horaReserva;
+        válido = false;
     }
 
     public String getCodigo() {

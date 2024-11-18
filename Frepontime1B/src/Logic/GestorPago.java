@@ -12,4 +12,5 @@ public class GestorPago {
         nuevaReserva.setPago(nuevoPago); // Asociar el pago a la reserva
         System.out.println("Reserva creada con éxito. Ticket generado: " + ticket.getCodigo());
     }
+
 }

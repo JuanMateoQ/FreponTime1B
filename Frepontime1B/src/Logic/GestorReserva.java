@@ -11,7 +11,7 @@ public class GestorReserva {
 
     private static GestorReserva instance;
 
-    GestorReserva(){
+    private GestorReserva(){
         reservasDeEstudiantes = new ArrayList<Reserva>();
         juegos = new ArrayList<Juego>();
         gestorEstudiante = new GestorEstudiante();
