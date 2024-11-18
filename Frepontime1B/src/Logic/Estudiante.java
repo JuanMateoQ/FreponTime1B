@@ -50,7 +50,7 @@ public class Estudiante {
         return this.enLínea;
     }
 
-    public void setNumerosDeReservas(int numerosDeReservas) {
+    public void  setNumerosDeReservas(int numerosDeReservas) {
         this.numerosDeReservas.add(numerosDeReservas);
     }
 

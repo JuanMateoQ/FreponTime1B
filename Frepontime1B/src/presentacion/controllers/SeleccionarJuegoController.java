@@ -24,10 +24,12 @@ public class SeleccionarJuegoController {
     }
     @FXML
     public void seleccionarBillar(ActionEvent event) { //0 --> Billar, 1--> PingPong
-
+        HorarioJuegosController.juegoAux = gestorReserva.getJuegosDisponibles().get(0);
+        NavegacionInterfaces.cambiarVentana((Stage) billarButton.getScene().getWindow(), "/presentacion/views/HorarioJuegos.fxml", "Horarios Disponibles");
     }
     @FXML
     public void seleccionarPingPong(ActionEvent event) {
-
+        HorarioJuegosController.juegoAux = gestorReserva.getJuegosDisponibles().get(1);
+        NavegacionInterfaces.cambiarVentana((Stage) pingPongButton.getScene().getWindow(), "/presentacion/views/HorarioJuegos.fxml", "Horarios Disponibles");
     }
 }
