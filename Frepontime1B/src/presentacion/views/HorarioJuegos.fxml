@@ -11,52 +11,52 @@
    <right>
       <Pane prefHeight="435.0" prefWidth="750.0" style="-fx-background-color: #CBDCEB;" BorderPane.alignment="CENTER">
          <children>
-            <CheckBox layoutX="156.0" layoutY="27.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="238.0" text="   09:00am a 10:00am">
+            <CheckBox fx:id="seleccionar910Button" layoutX="156.0" layoutY="27.0" mnemonicParsing="false" onAction="#seleccionar910" prefHeight="19.0" prefWidth="238.0" text="   09:00am a 10:00am">
                <font>
                   <Font name="OCR A Extended" size="14.0" />
                </font>
             </CheckBox>
-            <CheckBox layoutX="156.0" layoutY="66.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="238.0" text="   10:00am a 11:00am">
+            <CheckBox fx:id="seleccionar1011Button" layoutX="156.0" layoutY="66.0" mnemonicParsing="false" onAction="#seleccionar1011" prefHeight="19.0" prefWidth="238.0" text="   10:00am a 11:00am">
                <font>
                   <Font name="OCR A Extended" size="14.0" />
                </font>
             </CheckBox>
-            <CheckBox layoutX="156.0" layoutY="102.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="238.0" text="   11:00am a 12:00pm">
+            <CheckBox fx:id="seleccionar1112Button" layoutX="156.0" layoutY="102.0" mnemonicParsing="false" onAction="#seleccionar1112" prefHeight="19.0" prefWidth="238.0" text="   11:00am a 12:00pm">
                <font>
                   <Font name="OCR A Extended" size="14.0" />
                </font>
             </CheckBox>
-            <CheckBox layoutX="156.0" layoutY="144.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="238.0" text="   12:00pm a 13:00pm">
+            <CheckBox fx:id="seleccionar1213Button" layoutX="156.0" layoutY="144.0" mnemonicParsing="false" onAction="#seleccionar1213" prefHeight="19.0" prefWidth="238.0" text="   12:00pm a 13:00pm">
                <font>
                   <Font name="OCR A Extended" size="14.0" />
                </font>
             </CheckBox>
-            <CheckBox layoutX="156.0" layoutY="183.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="238.0" text="   13:00pm a 14:00pm">
+            <CheckBox fx:id="seleccionar1314Button" layoutX="156.0" layoutY="183.0" mnemonicParsing="false" onAction="#seleccionar1314" prefHeight="19.0" prefWidth="238.0" text="   13:00pm a 14:00pm">
                <font>
                   <Font name="OCR A Extended" size="14.0" />
                </font>
             </CheckBox>
-            <CheckBox layoutX="156.0" layoutY="253.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="238.0" text="   15:00pm a 16:00pm">
+            <CheckBox fx:id="seleccionar1516Button" layoutX="156.0" layoutY="253.0" mnemonicParsing="false" onAction="#seleccionar1516" prefHeight="19.0" prefWidth="238.0" text="   15:00pm a 16:00pm">
                <font>
                   <Font name="OCR A Extended" size="14.0" />
                </font>
             </CheckBox>
-            <CheckBox layoutX="156.0" layoutY="217.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="238.0" text="   14:00pm a 15:00pm">
+            <CheckBox fx:id="seleccionar1415Button" layoutX="156.0" layoutY="217.0" mnemonicParsing="false" onAction="#seleccionar1415" prefHeight="19.0" prefWidth="238.0" text="   14:00pm a 15:00pm">
                <font>
                   <Font name="OCR A Extended" size="14.0" />
                </font>
             </CheckBox>
-            <CheckBox layoutX="156.0" layoutY="291.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="238.0" text="   16:00pm a 17:00pm">
+            <CheckBox fx:id="seleccionar1617Button" layoutX="156.0" layoutY="291.0" mnemonicParsing="false" onAction="#seleccionar1617" prefHeight="19.0" prefWidth="238.0" text="   16:00pm a 17:00pm">
                <font>
                   <Font name="OCR A Extended" size="14.0" />
                </font>
             </CheckBox>
-            <CheckBox layoutX="156.0" layoutY="327.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="238.0" text="   17:00pm a 18:00pm">
+            <CheckBox fx:id="seleccionar1718Button" layoutX="156.0" layoutY="327.0" mnemonicParsing="false" onAction="#seleccionar1718" prefHeight="19.0" prefWidth="238.0" text="   17:00pm a 18:00pm">
                <font>
                   <Font name="OCR A Extended" size="14.0" />
                </font>
             </CheckBox>
-            <Button layoutX="151.0" layoutY="377.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="248.0" style="-fx-background-color: #A0D683;" text="Reservar">
+            <Button fx:id="reservarButton" layoutX="151.0" layoutY="377.0" mnemonicParsing="false" onAction="#reservarJuego" prefHeight="29.0" prefWidth="248.0" style="-fx-background-color: #A0D683;" text="Reservar">
                <font>
                   <Font name="OCR A Extended" size="21.0" />
                </font>
@@ -72,7 +72,7 @@
                   <Font name="OCR A Extended" size="46.0" />
                </font>
             </Label>
-            <Button layoutX="14.0" layoutY="13.0" mnemonicParsing="false" style="-fx-background-color: #F3F3E0;" text="Regresar">
+            <Button fx:id="regresarButton" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" onAction="#regresarSeleccionarJuego" style="-fx-background-color: #F3F3E0;" text="Regresar">
                <font>
                   <Font name="OCR A Extended" size="14.0" />
                </font>
