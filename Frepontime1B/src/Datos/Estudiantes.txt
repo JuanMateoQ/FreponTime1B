@@ -1,2 +1,3 @@
 Cofre Juan juanChest juan.cofre@epn.edu.ec 123456
 Quisilema Mateo JuanMateo juan.quisilema@epn.edu.ec 12345
+Huilca Fernando FH fernando.huilca@epn.edu.ec 12345

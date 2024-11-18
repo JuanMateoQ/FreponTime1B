@@ -28,7 +28,7 @@ public class LoginController {
             NavegacionInterfaces.mostrarAlerta("Error al Iniciar","Sus credenciales no son correctas");
             return;
         }
-        NavegacionInterfaces.cambiarVentana((Stage)loginButton.getScene().getWindow(), "/presentacion/views/Juegos.fxml", "Juegos");
+        NavegacionInterfaces.cambiarVentana((Stage)loginButton.getScene().getWindow(), "/presentacion/views/SeleccionarJuego.fxml", "Juegos");
     }
 
     @FXML

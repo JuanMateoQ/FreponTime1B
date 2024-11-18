@@ -41,4 +41,8 @@ public class Estudiante {
     public void setEnLinea(boolean enLínea) {
         this.enLínea = enLínea;
     }
+
+    public boolean getEnLinea() {
+        return this.enLínea;
+    }
 }

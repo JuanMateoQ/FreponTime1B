@@ -88,4 +88,14 @@ public class GestorEstudiante {
         }
         return false;
     }
+
+    public Estudiante buscarEstudiante(boolean estadoEstudiante) {
+        for(Estudiante estudianteAux: estudiantes){
+            if(estudianteAux.getEnLinea() == estadoEstudiante){
+                return estudianteAux;
+            }
+        }
+        return null;
+    }
+
 }
