@@ -5,13 +5,20 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class GestorPago {
-    public static void crearPagoDeReserva(Reserva nuevaReserva, ArrayList<Reserva> reservasDeEstudiantes, Juego juego) {
+    private ArrayList<Pago> pagos;
+
+    public GestorPago() {
+        pagos = new ArrayList<>();
+    }
+
+    public void crearPagoDeReserva(Reserva nuevaReserva, ArrayList<Reserva> reservasDeEstudiantes, Juego juego) {
         Ticket ticket = new Ticket("T-N" + nuevaReserva.getNumero(), LocalDate.now(), LocalTime.now());
         Pago nuevoPago = new Pago(reservasDeEstudiantes.size(), juego.getPrecioPorHora(), false, ticket);
+        pagos.add(nuevoPago);
         nuevaReserva.setPago(nuevoPago); // Asociar el pago a la reserva
         System.out.println("Reserva creada con éxito. Ticket generado: " + ticket.getCodigo());
     }
-    public static boolean pagarReserva(Reserva reservaAPagar) {
+    public boolean pagarReserva(Reserva reservaAPagar) {
         if (reservaAPagar.getPago().isEstadoPago()) {
             System.out.println("El pago ya fue confirmado.");
             return false;

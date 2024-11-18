@@ -7,6 +7,7 @@ public class GestorReserva {
     private ArrayList<Reserva> reservasDeEstudiantes;
     private ArrayList<Juego> juegos;
     private GestorEstudiante gestorEstudiante;
+    private GestorPago gestorPago;
     private File reservasFile;
     private File juegosFile;
     private File reservasEstudiantesFile;
@@ -18,6 +19,7 @@ public class GestorReserva {
         reservasDeEstudiantes = new ArrayList<Reserva>();
         juegos = new ArrayList<Juego>();
         gestorEstudiante = new GestorEstudiante();
+        gestorPago = new GestorPago();
 
         reservasFile = new File("FreponTime1B/src/Datos/Reserva.txt");
         juegosFile = new File("FreponTime1B/src/Datos/Juegos.txt");
@@ -45,7 +47,7 @@ public class GestorReserva {
                 estudianteEnLínea.getNumerosDeReservas().add(nuevaReserva.getNumero());
                 reservasDeEstudiantes.add(nuevaReserva);
 
-                GestorPago.crearPagoDeReserva(nuevaReserva, reservasDeEstudiantes, juego);
+                gestorPago.crearPagoDeReserva(nuevaReserva, reservasDeEstudiantes, juego);
                 return true;
             }
         }
