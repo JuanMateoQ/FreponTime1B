@@ -41,4 +41,12 @@ public class Juego {
         return this.nombre.equals(juego.nombre) && this.buenEstado == juego.buenEstado
                 && this.precioPorHora == juego.precioPorHora;
     }
+
+    public String getNombre() {
+        return this.nombre;
+    }
+
+    public double getTiempoPorHora() {
+        return this.precioPorHora;
+    }
 }

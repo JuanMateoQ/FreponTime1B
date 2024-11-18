@@ -1,5 +1,7 @@
 package Logic;
 
+import java.util.ArrayList;
+
 public class Estudiante {
     private String apellido;
     private String nombre;
@@ -7,9 +9,11 @@ public class Estudiante {
     private String correoElectrónico;
     private String contraseña;
 
+    private ArrayList<Integer> numeroDeReserva;
     private boolean enLínea;
 
     public Estudiante(String apellido, String nombre, String usuario, String correoElectrónico, String contraseña) {
+        numeroDeReserva = new ArrayList<>();
         this.apellido = apellido;
         this.nombre = nombre;
         this.usuario = usuario;
@@ -44,5 +48,9 @@ public class Estudiante {
 
     public boolean getEnLinea() {
         return this.enLínea;
+    }
+
+    public void setNumeroDeReserva(int numeroDeReserva) {
+        this.numeroDeReserva.add(numeroDeReserva);
     }
 }

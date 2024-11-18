@@ -1,11 +1,16 @@
 package Logic;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class GestorReserva {
     private ArrayList<Reserva> reservasDeEstudiantes;
     private ArrayList<Juego> juegos;
     private GestorEstudiante gestorEstudiante;
+    private File reservasFile;
+    private File juegosFile;
+    private File reservasEstudiantesFile;
+
 
     private static GestorReserva instance;
 
@@ -13,7 +18,14 @@ public class GestorReserva {
         reservasDeEstudiantes = new ArrayList<Reserva>();
         juegos = new ArrayList<Juego>();
         gestorEstudiante = new GestorEstudiante();
-        //TODO: va a ser la clase principal, todos los demás gestores se inicializan aquí
+
+        reservasFile = new File("src/Datos/Reserva.txt");
+        juegosFile = new File("src/Datos/Juegos.txt");
+        reservasEstudiantesFile = new File("src/Datos/ReservasDeEstudiante.txt");
+
+        GestorArchivos.cargarJuegos(this, juegosFile);
+        GestorArchivos.cargarReservas(this, reservasFile);
+        GestorArchivos.cargarReservasDeEstudiantes(this, reservasEstudiantesFile);
     }
     public static GestorReserva getInstance() {
         if (instance == null) {
@@ -80,5 +92,17 @@ public class GestorReserva {
 
     public boolean buscarCorreo(String correoElectrónico) {
         return gestorEstudiante.buscarCorreo(correoElectrónico);
+    }
+
+    public void agregarJuegos(Juego juego) {
+        juegos.add(juego);
+    }
+
+    public void agregarReserva(Reserva reserva) {
+        this.reservasDeEstudiantes.add(reserva);
+    }
+
+    public void agregarReservasAlEstudiante(String usuarioEstudiante, int numeroDeReserva) {
+        gestorEstudiante.agregarReservas(usuarioEstudiante, numeroDeReserva);
     }
 }

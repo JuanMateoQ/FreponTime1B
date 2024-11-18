@@ -25,4 +25,16 @@ public class Horario {
         Horario horario = (Horario)obj;
         return this.fecha.equals(horario.fecha) && this.hora.equals(horario.hora) && this.tiempo.equals(horario.tiempo);
     }
+
+    public LocalDate getFecha() {
+        return this.fecha;
+    }
+
+    public LocalTime getHora() {
+        return this.hora;
+    }
+
+    public Duration getTiempo() {
+        return this.tiempo;
+    }
 }

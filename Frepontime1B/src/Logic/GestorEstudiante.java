@@ -98,4 +98,14 @@ public class GestorEstudiante {
         return null;
     }
 
+
+    public void agregarReservas(String usuarioEstudiante, int numeroDeReserva) {
+        for(int i = 0; i < estudiantes.size(); i++){
+            if(estudiantes.get(i).getUsuario().equals(usuarioEstudiante)){
+                estudiantes.get(i).setNumeroDeReserva(numeroDeReserva);
+                return;
+            }
+        }
+        System.out.println("No se encontro al estudiante...");
+    }
 }
