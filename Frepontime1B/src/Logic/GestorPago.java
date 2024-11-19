@@ -53,4 +53,10 @@ public class GestorPago {
     public void agregarTickets(Ticket ticket) {
         tickets.add(ticket);
     }
+
+    public void guardarPagoYTicket() {
+        GestorArchivos.guardarPagos(this, new File("src/Datos/Pagos.txt"));
+        GestorArchivos.guardarTickets(this, new File("src/Datos/Tickets.txt"));
+        GestorArchivos.guardarPagosTicket(this, new File("src/Datos/PagosTickets.txt"));
+    }
 }

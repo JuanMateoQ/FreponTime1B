@@ -6,12 +6,15 @@ public class Juego {
     private String nombre;
     private boolean buenEstado;
     private double precioPorHora;
-    private Image image;
+    private String image;
 
-    public Juego(String nombre, boolean estado, double precioPorHora) {
+    public Juego(String nombre, boolean estado, double precioPorHora, String ubImage) {
         this.nombre = nombre;
         this.buenEstado = estado;
+        this.precioPorHora = precioPorHora;
+        this.image = ubImage;
     }
+
 
     public boolean getEstado() {
         return buenEstado;
@@ -56,7 +59,7 @@ public class Juego {
         return precioPorHora;
     }
 
-    public Image getImage() {
-        return image;
+    public String getUbicacion() {
+        return this.image;
     }
 }

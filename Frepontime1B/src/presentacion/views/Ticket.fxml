@@ -36,7 +36,6 @@
                   <Font name="OCR A Extended" size="19.0" />
                </font>
             </Button>
-            <ImageView fitHeight="175.0" fitWidth="204.0" layoutX="89.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true" />
             <TableView fx:id="tablaEstudiante" layoutX="31.0" layoutY="14.0" prefHeight="67.0" prefWidth="362.0" style="-fx-background-color: #F3F3E0;">
                <columns>
                   <TableColumn fx:id="columnaNombre" prefWidth="120.79999542236328" text="Nombre" />
@@ -44,6 +43,7 @@
                   <TableColumn fx:id="columnaUsuario" prefWidth="144.0" style="-fx-background-color: #68BC1;" text="Usuario" />
                </columns>
             </TableView>
+            <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" layoutX="76.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
    </center>

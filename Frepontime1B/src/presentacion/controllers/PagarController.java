@@ -68,6 +68,7 @@ public class PagarController {
             return;
         }
         gestorReserva.setEstadoDeReserva(false);
+        gestorReserva.guardarPagoYTicket();
         NavegacionInterfaces.mostrarAlerta("GRACIAS", "Su pago ha sido registrado exitosamente");
         NavegacionInterfaces.cambiarVentana((Stage) finalizarButton.getScene().getWindow(),
                 "/presentacion/views/Ticket.fxml", "Ticket...");

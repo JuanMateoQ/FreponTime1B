@@ -42,6 +42,10 @@ public class SeleccionarJuegoController {
     }
     @FXML
     public void pagarReserva  (ActionEvent event) {
+        if(gestorReserva.buscarEstudiante(true).getNumerosDeReservas().isEmpty()){
+            NavegacionInterfaces.mostrarAlerta("ERROR...", "No existe reservas del estudiante");
+            return;
+        }
         int numeroDeReservaAux = gestorReserva.buscarEstudiante(true).getNumerosDeReservas().getLast();
         if(!gestorReserva.getReservasDeEstudiantes().get(numeroDeReservaAux).getEstadoDeReserva()){
             NavegacionInterfaces.mostrarAlerta("ERROR...", "No existe una reserva a pagar.");

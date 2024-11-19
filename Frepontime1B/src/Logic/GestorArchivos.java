@@ -1,7 +1,5 @@
 package Logic;
 
-import javafx.scene.image.Image;
-
 import java.io.*;
 import java.time.Duration;
 import java.time.LocalDate;
@@ -73,10 +71,10 @@ public class GestorArchivos {
                 // Obtener los detalles del juego
                 boolean estadoJuego = Boolean.parseBoolean(datos[6]);
                 double precioPorHora = Double.parseDouble(datos[7]);
-               // String ubImage = datos[8];
+                String ubImage = datos[8];
 
                 // Crear el objeto Juego
-                Juego juego = new Juego(nombreJuego, estadoJuego, precioPorHora);
+                Juego juego = new Juego(nombreJuego, estadoJuego, precioPorHora, ubImage);
 
                 // Crear el objeto Reserva
                 Reserva reserva = new Reserva(numero, juego, horario, estadoDeReserva);
@@ -105,9 +103,9 @@ public class GestorArchivos {
                 nombreJuego = juego.split(" ")[0];
                 buenEstado = Boolean.parseBoolean(juego.split(" ")[1]);
                 precioPorHora = Double.parseDouble(juego.split(" ")[2]);
-                //ubImage = juego.split(" ")[3];
+                ubImage = juego.split(" ")[3];
                 //TODO: Hacer función agregarJuegos en gestor reserva
-                gestorReserva.agregarJuegos(new Juego(nombreJuego, buenEstado, precioPorHora));
+                gestorReserva.agregarJuegos(new Juego(nombreJuego, buenEstado, precioPorHora, ubImage));
             }
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
@@ -137,10 +135,12 @@ public class GestorArchivos {
                 Juego juego = reserva.getJuego();
                 boolean estadoJuego = juego.getEstado();
                 double precioPorHora = juego.getTiempoPorHora();
+                String ub = juego.getUbicacion();
 
                 // Crear la línea de texto con todos los datos
                 String linea = numero + " " + nombreJuego + " " + estadoDeReserva + " " +
-                        fecha + " " + hora + " " + duracionMinutos + " " + estadoJuego + " " + precioPorHora;
+                        fecha + " " + hora + " " + duracionMinutos + " " + estadoJuego + " " + precioPorHora + " " +
+                        ub;
 
                 // Escribir la línea en el archivo
                 writer.write(linea);

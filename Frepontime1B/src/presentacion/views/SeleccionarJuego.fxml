@@ -57,7 +57,7 @@
          <children>
             <ImageView fitHeight="163.0" fitWidth="163.0" layoutX="65.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../Data/PING%20PONG.png" />
+                  <Image url="@../../Data/PINGPONG.png" />
                </image>
             </ImageView>
             <Button fx:id="pingPongButton" layoutX="67.0" layoutY="235.0" mnemonicParsing="false" onAction="#seleccionarPingPong" prefHeight="25.0" prefWidth="179.0" style="-fx-background-color: #A0D683;" text="Ping Pong">

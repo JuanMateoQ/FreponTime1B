@@ -10,9 +10,12 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.event.ActionEvent;
 import javafx.stage.Stage;
+
+import java.io.FileInputStream;
 
 public class TicketController {
 
@@ -39,7 +42,7 @@ public class TicketController {
     private TableColumn columnaHora;
 
     @FXML
-    private ImageView imagenTicket;
+    private ImageView imageView;
 
     private ObservableList<Ticket> ticket;
     private ObservableList<Estudiante> estudiante;
@@ -55,10 +58,7 @@ public class TicketController {
             NavegacionInterfaces.mostrarAlerta("ERROR", "El estudiante no ha cancelado su reserva.");
             return;
         }
-        if(!gestorReserva.getReservasDeEstudiantes().get(indiceAux).getPago().getTicket().isValidez()){
-            NavegacionInterfaces.mostrarAlerta("ERROR", "El estudiante no tiene tickets validos.");
-            return;
-        }
+
         ticket = FXCollections.observableArrayList();
         this.columnaCodigo.setCellValueFactory(new PropertyValueFactory<>("codigo"));
         this.columnaFecha.setCellValueFactory(new PropertyValueFactory<>("fechaReserva"));
@@ -75,7 +75,7 @@ public class TicketController {
         this.estudiante.add(gestorReserva.buscarEstudiante(true));
         this.tablaEstudiante.setItems(this.estudiante);
 
-        //imagenTicket.setImage(gestorReserva.getReservasDeEstudiantes().get(indiceAux).getJuego().getImage());
+        imageView.setImage(new Image(getClass().getResource(gestorReserva.getReservasDeEstudiantes().get(indiceAux).getJuego().getUbicacion()).toExternalForm()));
     }
     @FXML
     public void continuar (ActionEvent event) {

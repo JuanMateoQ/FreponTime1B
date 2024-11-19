@@ -150,4 +150,9 @@ public class GestorReserva {
         int indice = buscarEstudiante(true).getNumerosDeReservas().getLast();
         reservasDeEstudiantes.get(indice).setEstadoReserva(estadoDeReserva);
     }
+
+    public void guardarPagoYTicket() {
+        gestorPago.guardarPagoYTicket();
+    }
+
 }
