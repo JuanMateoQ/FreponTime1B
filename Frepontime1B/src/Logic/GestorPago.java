@@ -12,9 +12,9 @@ public class GestorPago {
     public GestorPago() {
         pagos = new ArrayList<>();
         tickets = new ArrayList<>();
-        GestorArchivos.cargarPagos(this, new File("Frepontime1B/src/Datos/Pagos.txt"));
-        GestorArchivos.cargarTicket(this, new File("Frepontime1B/src/Datos/Tickets.txt"));
-        GestorArchivos.cargarPagosTicket(this, new File("Frepontime1B/src/Datos/PagosTickets.txt"));
+        GestorArchivos.cargarPagos(this, new File("src/Datos/Pagos.txt"));
+        GestorArchivos.cargarTicket(this, new File("src/Datos/Tickets.txt"));
+        GestorArchivos.cargarPagosTicket(this, new File("src/Datos/PagosTickets.txt"));
     }
 
     public void crearPagoDeReserva(Reserva nuevaReserva, ArrayList<Reserva> reservasDeEstudiantes, Juego juego) {
