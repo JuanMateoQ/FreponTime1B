@@ -12,7 +12,7 @@ public class GestorEstudiante {
 
     public GestorEstudiante() {
         estudiantes = new ArrayList<>();
-        estudianteFile = new File("FreponTime1B/src/Datos/Estudiantes.txt");
+        estudianteFile = new File("src/Datos/Estudiantes.txt");
         GestorArchivos.cargarEstudiantes(this, estudianteFile);
     }
 
@@ -81,6 +81,25 @@ public class GestorEstudiante {
         GestorArchivos.guardarEstudiantes(this, estudianteFile);
     }
 
+    public boolean buscarCorreo(String correoElectrónico) {
+        for (Estudiante estudiante : estudiantes) {
+            if(estudiante.getCorreoElectrónico().equals(correoElectrónico)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Estudiante buscarEstudiante(boolean estadoEstudiante) {
+        for(Estudiante estudianteAux: estudiantes){
+            if(estudianteAux.getEnLinea() == estadoEstudiante){
+                return estudianteAux;
+            }
+        }
+        return null;
+    }
+
+
     public void agregarReservas(String usuarioEstudiante, int numeroDeReserva) {
         for(int i = 0; i < estudiantes.size(); i++){
             if(estudiantes.get(i).getUsuario().equals(usuarioEstudiante)){
@@ -90,4 +109,5 @@ public class GestorEstudiante {
         }
         System.out.println("No se encontro al estudiante...");
     }
+
 }

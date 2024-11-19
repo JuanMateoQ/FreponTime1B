@@ -18,4 +18,16 @@ public class Ticket {
     public String getCodigo() {
         return código;
     }
+
+    public String getFechaReserva() {
+        return fechaReserva.toString();
+    }
+
+    public boolean isValidez() {
+        return validez;
+    }
+
+    public String getHoraReserva() {
+        return horaReserva.toString();
+    }
 }

@@ -21,9 +21,9 @@ public class GestorReserva {
         gestorEstudiante = new GestorEstudiante();
         gestorPago = new GestorPago();
 
-        reservasFile = new File("FreponTime1B/src/Datos/Reserva.txt");
-        juegosFile = new File("FreponTime1B/src/Datos/Juegos.txt");
-        reservasEstudiantesFile = new File("FreponTime1B/src/Datos/ReservasDeEstudiante.txt");
+        reservasFile = new File("src/Datos/Reserva.txt");
+        juegosFile = new File("src/Datos/Juegos.txt");
+        reservasEstudiantesFile = new File("src/Datos/ReservasDeEstudiante.txt");
 
         GestorArchivos.cargarJuegos(this, juegosFile);
         GestorArchivos.cargarReservas(this, reservasFile);
@@ -63,6 +63,16 @@ public class GestorReserva {
         return false;
     }
 
+    public ArrayList<Juego> getJuegosDisponibles() {
+        ArrayList<Juego> auxJuegos = new ArrayList();
+        for(int i = 0; i < juegos.size(); i++){
+            if(juegos.get(i).getEstado()){
+                auxJuegos.add(juegos.get(i));
+            }
+        }
+        return auxJuegos;
+    }
+
     public boolean iniciarSesion(String correo, String contrasena) {
         return gestorEstudiante.iniciarSesion(correo, contrasena);
     }
@@ -73,6 +83,9 @@ public class GestorReserva {
 
     public boolean buscarEstudiante(String usuario) {
         return gestorEstudiante.buscarEstudiante(usuario);
+    }
+    public Estudiante buscarEstudiante(boolean estadoEstudiante){
+        return gestorEstudiante.buscarEstudiante(estadoEstudiante);
     }
 
     public boolean verificarCodigo(String codigo) {
@@ -85,6 +98,10 @@ public class GestorReserva {
 
     public void guardarPosibleEstudiante() {
         gestorEstudiante.guardarPosibleEstudiante();
+    }
+
+    public boolean buscarCorreo(String correoElectrónico) {
+        return gestorEstudiante.buscarCorreo(correoElectrónico);
     }
 
     public void agregarJuegos(Juego juego) {

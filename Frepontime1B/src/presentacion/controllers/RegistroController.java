@@ -39,7 +39,12 @@ public class RegistroController {
         Estudiante estudianteAux = new Estudiante(apellidoAux, nombreAux, usuarioAux, emailAux, contraseniaAux);
         if(gestorReserva.buscarEstudiante(estudianteAux.getUsuario())){
             NavegacionInterfaces.mostrarAlerta("Operación Fallida", "El usuario ingresado ya se " +
-                    "encuentra registrado, cambielo por otro...");
+                    "encuentra registrado... Ingrese otro Usuario");
+            return;
+        }
+        if(gestorReserva.buscarCorreo(estudianteAux.getCorreoElectrónico())){
+            NavegacionInterfaces.mostrarAlerta("Operación Fallida", "El usuario ingresado ya se " +
+                    "encuentra registrado... Ingrese su correo Personal");
             return;
         }
 
