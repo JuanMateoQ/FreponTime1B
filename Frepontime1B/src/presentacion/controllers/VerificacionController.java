@@ -24,8 +24,8 @@ public class VerificacionController {
             return;
         }
         reserva.guardarPosibleEstudiante();
-        NavegacionInterfaces.mostrarAlerta("PROCESO EXITOSO", "FELICIDADES ustes se ha " +
-                "registrado con exito...\nInicie sesión para continuar.");
+        NavegacionInterfaces.mostrarAlerta("PROCESO EXITOSO", "FELICIDADES usted se ha " +
+                "registrado con éxito...\nInicie sesión para continuar.");
         NavegacionInterfaces.cambiarVentana((Stage) confirmacionButton.getScene().getWindow(),
                 "/presentacion/views/login.fxml", "Login");
     }
