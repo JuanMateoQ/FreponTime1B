@@ -307,11 +307,9 @@ public class GestorArchivos {
     public static void guardarPagosTicket(GestorPago gestorPago, File pagosTickets){
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(pagosTickets))) {
             for (Pago pago : gestorPago.getPagos()) {
-                if (pago.getTicket() != null) {
-                    String linea = pago.getTicket().getCodigo() + " " + pago.getnPago();
-                    writer.write(linea);
-                    writer.newLine();
-                }
+                String linea = pago.getTicket().getCodigo() + " " + pago.getnPago();
+                writer.write(linea);
+                writer.newLine();
             }
         } catch (IOException e) {
             System.out.println("Error al escribir en el archivo de pagos-tickets: " + e.getMessage());

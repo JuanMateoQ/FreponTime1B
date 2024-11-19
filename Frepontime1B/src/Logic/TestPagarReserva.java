@@ -18,7 +18,7 @@ public class TestPagarReserva {
         //Aqui se instancia por el ejemplo
         Reserva reserva = null;
         reserva = gestorReserva.crearReserva(new Juego("Billar",true,2.5),
-                new Horario(LocalDate.of(2024,11,20), LocalTime.of(13,30), Duration.ofMinutes(1)));
+                new Horario(LocalDate.of(2024,11,22), LocalTime.of(13,30), Duration.ofMinutes(1)));
 
         //Se realizó la reserva o si no hay reservas duplicadas
         if(reserva != null) {

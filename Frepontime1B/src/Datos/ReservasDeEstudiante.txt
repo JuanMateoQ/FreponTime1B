@@ -1,4 +1,2 @@
 juanChest 0
 juanChest 1
-juanChest 2
-juanChest 3
