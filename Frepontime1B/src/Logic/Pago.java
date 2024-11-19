@@ -4,7 +4,7 @@ public class Pago {
     private int nPago;
     private double monto;
     private boolean estadoPago;
-    private Ticket reserva;
+    private Ticket ticket;
 
     public Pago(int nPago, double monto, boolean estadoPago) {
         this.nPago = nPago;
@@ -24,8 +24,8 @@ public class Pago {
         this.estadoPago = estadoPago;
     }
 
-    public void setReserva(Ticket reserva) {
-        this.reserva = reserva;
+    public void setTicket(Ticket ticket) {
+        this.ticket = ticket;
     }
 
     public int getnPago() {
@@ -40,11 +40,7 @@ public class Pago {
         return estadoPago;
     }
 
-    public Ticket getReserva() {
-        return reserva;
-    }
-
-    public void setTicket(Ticket ticket) {
-        this.reserva = ticket;
+    public Ticket getTicket() {
+        return ticket;
     }
 }

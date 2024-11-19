@@ -214,7 +214,7 @@ public class GestorArchivos {
                 validez = Boolean.parseBoolean(ticket.split(" ")[2]);
                 fecha = LocalDate.parse(ticket.split(" ")[3]);
                 hora = LocalTime.parse(ticket.split(" ")[4]);
-                //TODO gestorPago.agregarTicketAPago();
+                gestorPago.agregarTickets(new Ticket(código,fecha,hora, validez));
             }
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
@@ -225,7 +225,6 @@ public class GestorArchivos {
     public static void guardarTickets(GestorPago gestorPago, File tickets){
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(tickets))) {
             for (Ticket ticket : gestorPago.getTickets()) {
-                // Formato: código validez fechaReserva horaReserva
                 String linea = ticket.getCodigo() + " " + ticket.isValidez() + " " +
                         ticket.getFechaReserva() + " " + ticket.getHoraReserva();
                 writer.write(linea);
@@ -236,28 +235,51 @@ public class GestorArchivos {
         }
     }
     public static void cargarPagosTicket(GestorPago gestorPago, File pagosTickets) {
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(pagosTickets));
-            String pagoTicket;
-            String código;
-            int nPago;
-            while((pagoTicket = reader.readLine()) != null) {
-                código = pagoTicket.split(" ")[0];
-                nPago = Integer.parseInt(pagoTicket.split(" ")[1]);
+        try (BufferedReader reader = new BufferedReader(new FileReader(pagosTickets))) {
+            String linea;
+
+            while ((linea = reader.readLine()) != null) {
+                String[] datos = linea.split(" ");
+                String codigoTicket = datos[0];
+                int nPago = Integer.parseInt(datos[1]);
+
+                // Buscar el ticket correspondiente por código
+                Ticket ticketEncontrado = null;
+                for (Ticket ticket : gestorPago.getTickets()) {
+                    if (ticket.getCodigo().equals(codigoTicket)) {
+                        ticketEncontrado = ticket;
+                        break;
+                    }
+                }
+
+                // Buscar el pago correspondiente por número de pago
+                Pago pagoEncontrado = null;
+                for (Pago pago : gestorPago.getPagos()) {
+                    if (pago.getnPago() == nPago) {
+                        pagoEncontrado = pago;
+                        break;
+                    }
+                }
+
+                // Asociar el ticket al pago, si ambos existen
+                if (ticketEncontrado != null && pagoEncontrado != null) {
+                    pagoEncontrado.setTicket(ticketEncontrado);
+                } else {
+                    System.out.println("Error: No se encontró un ticket o pago correspondiente en la línea: " + linea);
+                }
             }
+
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            System.out.println("Archivo de pagos-tickets no encontrado: " + e.getMessage());
         } catch (IOException e) {
-            System.out.println("Error al leer el archivo: " + e.getMessage());
+            System.out.println("Error al leer el archivo de pagos-tickets: " + e.getMessage());
         }
     }
     public static void guardarPagosTicket(GestorPago gestorPago, File pagosTickets){
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(pagosTickets))) {
             for (Pago pago : gestorPago.getPagos()) {
-                // Relación Pago-Ticket
-                if (pago.getReserva() != null) {
-                    // Formato: códigoTicket nPago
-                    String linea = pago.getReserva().getCodigo() + " " + pago.getnPago();
+                if (pago.getTicket() != null) {
+                    String linea = pago.getTicket().getCodigo() + " " + pago.getnPago();
                     writer.write(linea);
                     writer.newLine();
                 }

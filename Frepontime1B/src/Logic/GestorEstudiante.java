@@ -12,7 +12,7 @@ public class GestorEstudiante {
 
     public GestorEstudiante() {
         estudiantes = new ArrayList<>();
-        estudianteFile = new File("src/Datos/Estudiantes.txt");
+        estudianteFile = new File("FreponTime1B/src/Datos/Estudiantes.txt");
         GestorArchivos.cargarEstudiantes(this, estudianteFile);
     }
 
