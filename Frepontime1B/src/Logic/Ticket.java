@@ -9,10 +9,11 @@ public class Ticket {
     private LocalDate fechaReserva;
     private LocalTime horaReserva;
 
-    public Ticket(String código, LocalDate fechaReserva, LocalTime horaReserva) {
+    public Ticket(String código, LocalDate fechaReserva, LocalTime horaReserva, boolean validez) {
         this.código = código;
         this.fechaReserva = fechaReserva;
         this.horaReserva = horaReserva;
+        this.validez = validez;
     }
 
     public String getCodigo() {

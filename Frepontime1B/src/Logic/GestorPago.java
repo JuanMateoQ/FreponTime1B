@@ -16,9 +16,10 @@ public class GestorPago {
     }
 
     public void crearPagoDeReserva(Reserva nuevaReserva, ArrayList<Reserva> reservasDeEstudiantes, Juego juego) {
-        Ticket ticket = new Ticket("T-N" + nuevaReserva.getNumero(), LocalDate.now(), LocalTime.now());
+        Ticket ticket = new Ticket("T-N" + nuevaReserva.getNumero(), LocalDate.now(), LocalTime.now(), false);
         Pago nuevoPago = new Pago(reservasDeEstudiantes.size(), juego.getPrecioPorHora(), false);
         nuevoPago.setTicket(ticket);
+        tickets.add(ticket);
         pagos.add(nuevoPago);
         nuevaReserva.setPago(nuevoPago); // Asociar el pago a la reserva
         System.out.println("Reserva creada con éxito. Ticket generado: " + ticket.getCodigo());
@@ -45,5 +46,9 @@ public class GestorPago {
 
     public ArrayList<Ticket> getTickets() {
         return tickets;
+    }
+
+    public void agregarTickets(Ticket ticket) {
+        tickets.add(ticket);
     }
 }

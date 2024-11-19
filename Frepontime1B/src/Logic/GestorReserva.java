@@ -21,9 +21,9 @@ public class GestorReserva {
         gestorEstudiante = new GestorEstudiante();
         gestorPago = new GestorPago();
 
-        reservasFile = new File("src/Datos/Reserva.txt");
-        juegosFile = new File("src/Datos/Juegos.txt");
-        reservasEstudiantesFile = new File("src/Datos/ReservasDeEstudiante.txt");
+        reservasFile = new File("FreponTime1B/src/Datos/Reserva.txt");
+        juegosFile = new File("FreponTime1B/src/Datos/Juegos.txt");
+        reservasEstudiantesFile = new File("FreponTime1B/src/Datos/ReservasDeEstudiante.txt");
 
         GestorArchivos.cargarJuegos(this, juegosFile);
         GestorArchivos.cargarReservas(this, reservasFile);
@@ -122,5 +122,9 @@ public class GestorReserva {
 
     public ArrayList<Reserva> getReservasDeEstudiantes() {
         return reservasDeEstudiantes;
+    }
+
+    public GestorPago getGestorPago() {
+        return gestorPago;
     }
 }
