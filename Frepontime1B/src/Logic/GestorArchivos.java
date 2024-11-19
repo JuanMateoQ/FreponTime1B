@@ -51,28 +51,6 @@ public class GestorArchivos {
         }
     }
 
-    public static void cargarJuegos(GestorReserva gestorReserva, File archivoJuegos) {
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(archivoJuegos));
-            String juego;
-            String nombreJuego;
-            boolean buenEstado;
-            double precioPorHora;
-            while ((juego = reader.readLine()) != null) {
-                // Procesar la línea
-                nombreJuego = juego.split(" ")[0];
-                buenEstado = Boolean.parseBoolean(juego.split(" ")[1]);
-                precioPorHora = Double.parseDouble(juego.split(" ")[2]);
-                //TODO: Hacer función agregarJuegos en gestor reserva
-                gestorReserva.agregarJuegos(new Juego(nombreJuego, buenEstado, precioPorHora));
-            }
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            System.out.println("Error al leer el archivo: " + e.getMessage());
-        }
-    }
-
     public static void cargarReservas(GestorReserva gestorReserva, File archivoReservas) {
         try (BufferedReader reader = new BufferedReader(new FileReader(archivoReservas))) {
             String linea;
@@ -109,6 +87,28 @@ public class GestorArchivos {
             System.out.println("Error al leer el archivo: " + e.getMessage());
         }
 
+    }
+
+    public static void cargarJuegos(GestorReserva gestorReserva, File archivoJuegos) {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(archivoJuegos));
+            String juego;
+            String nombreJuego;
+            boolean buenEstado;
+            double precioPorHora;
+            while ((juego = reader.readLine()) != null) {
+                // Procesar la línea
+                nombreJuego = juego.split(" ")[0];
+                buenEstado = Boolean.parseBoolean(juego.split(" ")[1]);
+                precioPorHora = Double.parseDouble(juego.split(" ")[2]);
+                //TODO: Hacer función agregarJuegos en gestor reserva
+                gestorReserva.agregarJuegos(new Juego(nombreJuego, buenEstado, precioPorHora));
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            System.out.println("Error al leer el archivo: " + e.getMessage());
+        }
     }
     public static void guardarReservas(File archivoReservas, ArrayList<Reserva> reservas) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivoReservas))) {
@@ -181,12 +181,89 @@ public class GestorArchivos {
                 nPago = Integer.parseInt(pago.split(" ")[0]);
                 monto = Double.parseDouble(pago.split(" ")[1]);
                 estadoPago = Boolean.parseBoolean(pago.split(" ")[2]);
-            //    gestorPago.agregarPagos(new Pago(nPago, monto, estadoPago, new Ticket()));
+                gestorPago.agregarPagos(new Pago(nPago, monto, estadoPago));
             }
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
             System.out.println("Error al leer el archivo: " + e.getMessage());
+        }
+    }
+    public static void guardarPagos(GestorPago gestorPago, File pagos){
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(pagos))) {
+            for (Pago pago : gestorPago.getPagos()) {
+                // Formato: nPago monto estadoPago
+                String linea = pago.getnPago() + " " + pago.getMonto() + " " + pago.isEstadoPago();
+                writer.write(linea);
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            System.out.println("Error al escribir en el archivo de pagos: " + e.getMessage());
+        }
+    }
+    public static void cargarTicket(GestorPago gestorPago, File tickets) {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(tickets));
+            String ticket;
+            String código;
+            boolean validez;
+            LocalDate fecha;  // Formato: yyyy-MM-dd
+            LocalTime hora; // Formato: HH:mm
+            while((ticket = reader.readLine()) != null) {
+                código = ticket.split(" ")[0];
+                validez = Boolean.parseBoolean(ticket.split(" ")[2]);
+                fecha = LocalDate.parse(ticket.split(" ")[3]);
+                hora = LocalTime.parse(ticket.split(" ")[4]);
+                //TODO gestorPago.agregarTicketAPago();
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            System.out.println("Error al leer el archivo: " + e.getMessage());
+        }
+    }
+    public static void guardarTickets(GestorPago gestorPago, File tickets){
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(tickets))) {
+            for (Ticket ticket : gestorPago.getTickets()) {
+                // Formato: código validez fechaReserva horaReserva
+                String linea = ticket.getCodigo() + " " + ticket.isValidez() + " " +
+                        ticket.getFechaReserva() + " " + ticket.getHoraReserva();
+                writer.write(linea);
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            System.out.println("Error al escribir en el archivo de tickets: " + e.getMessage());
+        }
+    }
+    public static void cargarPagosTicket(GestorPago gestorPago, File pagosTickets) {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(pagosTickets));
+            String pagoTicket;
+            String código;
+            int nPago;
+            while((pagoTicket = reader.readLine()) != null) {
+                código = pagoTicket.split(" ")[0];
+                nPago = Integer.parseInt(pagoTicket.split(" ")[1]);
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            System.out.println("Error al leer el archivo: " + e.getMessage());
+        }
+    }
+    public static void guardarPagosTicket(GestorPago gestorPago, File pagosTickets){
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(pagosTickets))) {
+            for (Pago pago : gestorPago.getPagos()) {
+                // Relación Pago-Ticket
+                if (pago.getReserva() != null) {
+                    // Formato: códigoTicket nPago
+                    String linea = pago.getReserva().getCodigo() + " " + pago.getnPago();
+                    writer.write(linea);
+                    writer.newLine();
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error al escribir en el archivo de pagos-tickets: " + e.getMessage());
         }
     }
 }
