@@ -18,7 +18,7 @@
                   <Font name="OCR A Extended" size="44.0" />
                </font>
             </Label>
-            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="101.0" style="-fx-background-color: #F3F3E0;" text="Regresar">
+            <Button fx:id="regresarButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#regresarConfirmaReserva" prefHeight="12.0" prefWidth="101.0" style="-fx-background-color: #F3F3E0;" text="Regresar">
                <font>
                   <Font name="OCR A Extended" size="13.0" />
                </font>
@@ -41,7 +41,7 @@
                   <Font name="OCR A Extended" size="24.0" />
                </font>
             </Label>
-            <TextField layoutX="136.0" layoutY="224.0" prefHeight="31.0" prefWidth="248.0" />
+            <TextField fx:id="validarTextFiel" layoutX="136.0" layoutY="224.0" onAction="#validar" prefHeight="31.0" prefWidth="248.0" />
             <Button layoutX="206.0" layoutY="275.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="122.0" style="-fx-background-color: #A0D683;" text="Finalizar">
                <font>
                   <Font name="OCR A Extended" size="15.0" />

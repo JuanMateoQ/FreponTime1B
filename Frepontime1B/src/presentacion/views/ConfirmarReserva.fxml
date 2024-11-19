@@ -21,12 +21,12 @@
    <bottom>
       <Pane prefHeight="282.0" prefWidth="420.0" style="-fx-background-color: #CBDCEB;" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="100.0" layoutY="63.0" mnemonicParsing="false" style="-fx-background-color: #A0D683;" text="Confirmar reserva">
+            <Button fx:id="confirmarReservaButton" layoutX="100.0" layoutY="63.0" mnemonicParsing="false" onAction="#confirmarReserva" style="-fx-background-color: #A0D683;" text="Confirmar reserva">
                <font>
                   <Font name="OCR A Extended" size="20.0" />
                </font>
             </Button>
-            <Button layoutX="100.0" layoutY="124.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #A0D683;" text="Cancelar reserva">
+            <Button fx:id="cancelarReservaButton" layoutX="100.0" layoutY="124.0" mnemonicParsing="false" onAction="#cancelarReserva" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #A0D683;" text="Cancelar reserva">
                <font>
                   <Font name="OCR A Extended" size="20.0" />
                </font>

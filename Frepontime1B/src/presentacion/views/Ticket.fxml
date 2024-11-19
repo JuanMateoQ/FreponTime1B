@@ -13,7 +13,7 @@
    <top>
       <Pane prefHeight="105.0" prefWidth="550.0" style="-fx-background-color: #133E87;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="226.0" layoutY="27.0" text="RESERVA" textFill="WHITE">
+            <Label layoutX="226.0" layoutY="27.0" text="TICKET" textFill="WHITE">
                <font>
                   <Font name="OCR A Extended" size="47.0" />
                </font>
