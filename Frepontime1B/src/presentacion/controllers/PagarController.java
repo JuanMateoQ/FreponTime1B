@@ -32,6 +32,7 @@ public class PagarController {
 
     private ObservableList<Pago> listaPagos;
     GestorReserva gestorReserva = GestorReserva.getInstance();
+    int indiceAux = gestorReserva.buscarEstudiante(true).getNumerosDeReservas().getLast();
 
     @FXML
     public void initialize() {
@@ -41,7 +42,6 @@ public class PagarController {
            return;
         }
 
-        int indiceAux = gestorReserva.buscarEstudiante(true).getNumerosDeReservas().getLast();
         if(!gestorReserva.getReservasDeEstudiantes().get(indiceAux).getEstadoDeReserva()){
             NavegacionInterfaces.mostrarAlerta("ERROR", "El estudiante no tiene reservas a pagar");
             return;
@@ -68,6 +68,7 @@ public class PagarController {
             return;
         }
         gestorReserva.setEstadoDeReserva(false);
+
         gestorReserva.guardarPagoYTicket();
         NavegacionInterfaces.mostrarAlerta("GRACIAS", "Su pago ha sido registrado exitosamente");
         NavegacionInterfaces.cambiarVentana((Stage) finalizarButton.getScene().getWindow(),

@@ -24,7 +24,7 @@
    <center>
       <Pane prefHeight="282.0" prefWidth="550.0" style="-fx-background-color: #CBDCEB;" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="tablaTicket" layoutX="144.0" layoutY="103.0" prefHeight="67.0" prefWidth="362.0" style="-fx-background-color: #F3F3E0;">
+            <TableView fx:id="tablaTicket" layoutX="31.0" layoutY="90.0" prefHeight="67.0" prefWidth="362.0" style="-fx-background-color: #F3F3E0;">
               <columns>
                 <TableColumn fx:id="columnaCodigo" prefWidth="120.79999542236328" text="Codigo" />
                   <TableColumn fx:id="columnaFecha" prefWidth="96.79998779296875" text="Fecha" />
@@ -43,7 +43,19 @@
                   <TableColumn fx:id="columnaUsuario" prefWidth="144.0" style="-fx-background-color: #68BC1;" text="Usuario" />
                </columns>
             </TableView>
-            <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" layoutX="76.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" layoutX="40.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true" />
+            <TableView fx:id="tablaHorario" layoutX="274.0" layoutY="231.0" prefHeight="67.0" prefWidth="362.0" style="-fx-background-color: #F3F3E0;">
+               <columns>
+                  <TableColumn fx:id="columnaFecha1" prefWidth="120.79999542236328" text="Fecha" />
+                  <TableColumn fx:id="columnaHora1" prefWidth="96.79998779296875" text="Hora" />
+                  <TableColumn fx:id="columnaDuracion" prefWidth="144.0" style="-fx-background-color: #68BC1;" text="Duracion" />
+               </columns>
+            </TableView>
+            <Label layoutX="361.0" layoutY="175.0" prefHeight="42.0" prefWidth="213.0" text="Horario" textFill="WHITE">
+               <font>
+                  <Font name="OCR A Extended" size="47.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </center>

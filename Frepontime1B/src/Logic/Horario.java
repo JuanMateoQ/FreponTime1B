@@ -49,4 +49,6 @@ public class Horario {
     public void setHora(LocalTime hora) {
         this.hora = hora;
     }
+
+
 }

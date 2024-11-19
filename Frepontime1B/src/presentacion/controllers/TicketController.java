@@ -5,8 +5,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -14,8 +12,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.event.ActionEvent;
 import javafx.stage.Stage;
-
-import java.io.FileInputStream;
 
 public class TicketController {
 
@@ -26,6 +22,8 @@ public class TicketController {
     private TableView<Estudiante> tablaEstudiante;
     @FXML
     private TableView<Ticket> tablaTicket;
+    @FXML
+    private TableView<Horario> tablaHorario;
 
     @FXML
     private TableColumn columnaNombre;
@@ -42,10 +40,18 @@ public class TicketController {
     private TableColumn columnaHora;
 
     @FXML
+    private TableColumn columnaFecha1;
+    @FXML
+    private TableColumn columnaHora1;
+    @FXML
+    private TableColumn columnaDuracion;
+
+    @FXML
     private ImageView imageView;
 
     private ObservableList<Ticket> ticket;
     private ObservableList<Estudiante> estudiante;
+    private ObservableList<Horario> horario;
     GestorReserva gestorReserva = GestorReserva.getInstance();
     @FXML
     public void initialize() {
@@ -74,6 +80,14 @@ public class TicketController {
 
         this.estudiante.add(gestorReserva.buscarEstudiante(true));
         this.tablaEstudiante.setItems(this.estudiante);
+
+        horario = FXCollections.observableArrayList();
+        this.columnaFecha1.setCellValueFactory(new PropertyValueFactory<>("fecha"));
+        this.columnaHora1.setCellValueFactory(new PropertyValueFactory<>("hora"));
+        this.columnaDuracion.setCellValueFactory(new PropertyValueFactory<>("tiempo"));
+        int aux = gestorReserva.buscarEstudiante(true).getNumerosDeReservas().getLast();
+        this.horario.add(gestorReserva.getReservasDeEstudiantes().get(aux).getHorario());
+        this.tablaHorario.setItems(this.horario);
 
         imageView.setImage(new Image(getClass().getResource(gestorReserva.getReservasDeEstudiantes().get(indiceAux).getJuego().getUbicacion()).toExternalForm()));
     }

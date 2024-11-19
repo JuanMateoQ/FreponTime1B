@@ -47,4 +47,5 @@ public class Reserva {
     public void setEstadoReserva(boolean estadoPago) {
         this.estadoDeReserva = estadoPago;
     }
+
 }

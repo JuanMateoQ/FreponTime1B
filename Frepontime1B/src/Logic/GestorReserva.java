@@ -155,4 +155,7 @@ public class GestorReserva {
         gestorPago.guardarPagoYTicket();
     }
 
+    public File getReservaFile() {
+        return this.reservasFile;
+    }
 }
