@@ -51,13 +51,13 @@ public class HorarioJuegosController {
     @FXML
     private void regresarSeleccionarJuego(ActionEvent event) {
         //TODO: LOGICA
-        NavegacionInterfaces.cambiarVentana((Stage)regresarButton.getScene().getWindow(),"/presentacion/views/SeleccionarJuego.fxml", "Regresar a seleccionar juego");
+        NavegacionInterfaces.cambiarVentana((Stage)regresarButton.getScene().getWindow(),"/presentacion/views/SeleccionarJuego.fxml", "Reservar Juego");
     }
 
     @FXML
     private void reservarJuego(ActionEvent event) {
         //TODO: LOGICA
-        NavegacionInterfaces.cambiarVentana((Stage)reservarButton.getScene().getWindow(),"/presentacion/views/VerificaciónDeCodigo.fxml", "Reservar juego");
+        NavegacionInterfaces.cambiarVentana((Stage)reservarButton.getScene().getWindow(),"/presentacion/views/ConfirmarReserva.fxml", "Confirmar Reserva");
     }
 
     @FXML

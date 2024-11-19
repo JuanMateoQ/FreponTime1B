@@ -13,6 +13,11 @@ public class SeleccionarJuegoController {
     public Button billarButton;
     @FXML
     public Button pingPongButton;
+    @FXML
+    public Button pagarReservaButton;
+    @FXML
+    public Button verTicketButton;
+
 
     GestorReserva gestorReserva = GestorReserva.getInstance();
     @FXML
@@ -31,5 +36,14 @@ public class SeleccionarJuegoController {
     public void seleccionarPingPong(ActionEvent event) {
         HorarioJuegosController.juegoAux = gestorReserva.getJuegosDisponibles().get(1);
         NavegacionInterfaces.cambiarVentana((Stage) pingPongButton.getScene().getWindow(), "/presentacion/views/HorarioJuegos.fxml", "Horarios Disponibles");
+    }
+    @FXML
+    public void pagarReserva  (ActionEvent event) {
+
+        NavegacionInterfaces.cambiarVentana((Stage) pagarReservaButton.getScene().getWindow(), "/presentacion/views/Pagar.fxml", "Pagos");
+    }
+    @FXML
+    public void verTicket(ActionEvent event) {
+
     }
 }

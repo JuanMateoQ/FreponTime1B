@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.controllers.PagarController">
    <top>
       <Pane prefHeight="104.0" prefWidth="520.0" style="-fx-background-color: #133E87;" BorderPane.alignment="CENTER">
          <children>
@@ -18,7 +18,7 @@
                   <Font name="OCR A Extended" size="44.0" />
                </font>
             </Label>
-            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="101.0" style="-fx-background-color: #F3F3E0;" text="Regresar">
+            <Button fx:id="regresarButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#regresarConfirmaReserva" prefHeight="12.0" prefWidth="101.0" style="-fx-background-color: #F3F3E0;" text="Regresar">
                <font>
                   <Font name="OCR A Extended" size="13.0" />
                </font>
@@ -29,9 +29,9 @@
    <center>
       <Pane prefHeight="377.0" prefWidth="520.0" style="-fx-background-color: #F3F3E0;" BorderPane.alignment="CENTER">
          <children>
-            <TableView layoutX="65.0" layoutY="64.0" prefHeight="55.0" prefWidth="406.0" style="-fx-background-color: #CBDCEB;">
+            <TableView fx:id="tablaPagos" layoutX="64.0" layoutY="62.0" prefHeight="55.0" prefWidth="406.0" style="-fx-background-color: #CBDCEB;">
               <columns>
-                <TableColumn prefWidth="138.4000244140625" text="Número de reserva" />
+                <TableColumn prefWidth="138.4000244140625" text="Número de Pago" />
                 <TableColumn prefWidth="186.39996337890625" text="Valor Reserva" />
                   <TableColumn prefWidth="80.800048828125" text="Total" />
               </columns>
@@ -41,8 +41,8 @@
                   <Font name="OCR A Extended" size="24.0" />
                </font>
             </Label>
-            <TextField layoutX="136.0" layoutY="224.0" prefHeight="31.0" prefWidth="248.0" />
-            <Button layoutX="206.0" layoutY="275.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="122.0" style="-fx-background-color: #A0D683;" text="Finalizar">
+            <TextField fx:id="validarTextField" alignment="CENTER" layoutX="136.0" layoutY="224.0" prefHeight="31.0" prefWidth="248.0" promptText="Codigo de Validacion" />
+            <Button fx:id="finalizarButton" layoutX="206.0" layoutY="275.0" mnemonicParsing="false" onAction="#finalizar" prefHeight="30.0" prefWidth="122.0" style="-fx-background-color: #A0D683;" text="Finalizar">
                <font>
                   <Font name="OCR A Extended" size="15.0" />
                </font>

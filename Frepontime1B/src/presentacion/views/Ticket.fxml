@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.controllers.TicketController">
    <top>
       <Pane prefHeight="105.0" prefWidth="550.0" style="-fx-background-color: #133E87;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="226.0" layoutY="27.0" text="RESERVA" textFill="WHITE">
+            <Label layoutX="126.0" layoutY="27.0" text="Ticket Reserva" textFill="WHITE">
                <font>
                   <Font name="OCR A Extended" size="47.0" />
                </font>
@@ -24,20 +24,26 @@
    <center>
       <Pane prefHeight="282.0" prefWidth="550.0" style="-fx-background-color: #CBDCEB;" BorderPane.alignment="CENTER">
          <children>
-            <TableView layoutX="99.0" layoutY="31.0" prefHeight="67.0" prefWidth="453.0" style="-fx-background-color: #F3F3E0;">
+            <TableView fx:id="tablaTicket" layoutX="144.0" layoutY="103.0" prefHeight="67.0" prefWidth="362.0" style="-fx-background-color: #F3F3E0;">
               <columns>
-                <TableColumn prefWidth="171.20000839233398" text="Usuario" />
-                <TableColumn prefWidth="127.20002746582031" text="Fecha" />
-                  <TableColumn prefWidth="74.39996337890625" text="Hora" />
-                  <TableColumn prefWidth="77.79998779296875" style="-fx-background-color: #68BC1;" text="Duración" />
+                <TableColumn fx:id="columnaCodigo" prefWidth="120.79999542236328" text="Codigo" />
+                  <TableColumn fx:id="columnaFecha" prefWidth="96.79998779296875" text="Fecha" />
+                  <TableColumn fx:id="columnaHora" prefWidth="144.0" style="-fx-background-color: #68BC1;" text="Hora" />
               </columns>
             </TableView>
-            <Button layoutX="468.0" layoutY="350.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="148.0" style="-fx-background-color: #A0D683;" text="Continuar">
+            <Button fx:id="continuarButton" layoutX="468.0" layoutY="350.0" mnemonicParsing="false" onAction="#continuar" prefHeight="12.0" prefWidth="148.0" style="-fx-background-color: #A0D683;" text="Continuar">
                <font>
                   <Font name="OCR A Extended" size="19.0" />
                </font>
             </Button>
-            <ImageView fitHeight="156.0" fitWidth="243.0" layoutX="212.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="175.0" fitWidth="204.0" layoutX="89.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true" />
+            <TableView fx:id="tablaEstudiante" layoutX="31.0" layoutY="14.0" prefHeight="67.0" prefWidth="362.0" style="-fx-background-color: #F3F3E0;">
+               <columns>
+                  <TableColumn fx:id="columnaNombre" prefWidth="120.79999542236328" text="Nombre" />
+                  <TableColumn fx:id="columnApellido" prefWidth="96.79998779296875" text="Apellido" />
+                  <TableColumn fx:id="columnaUsuario" prefWidth="144.0" style="-fx-background-color: #68BC1;" text="Usuario" />
+               </columns>
+            </TableView>
          </children>
       </Pane>
    </center>

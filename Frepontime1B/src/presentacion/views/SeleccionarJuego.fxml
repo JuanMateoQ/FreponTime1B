@@ -10,14 +10,24 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.controllers.SeleccionarJuegoController">
    <top>
-      <Pane prefHeight="97.0" prefWidth="600.0" style="-fx-background-color: #133E87;" BorderPane.alignment="CENTER">
+      <Pane prefHeight="105.0" prefWidth="600.0" style="-fx-background-color: #133E87;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="141.0" layoutY="42.0" text="SELECCIONAR JUEGO" textFill="#fffcfc">
+            <Label layoutX="180.0" layoutY="35.0" prefHeight="36.0" prefWidth="359.0" text="SELECCIONAR JUEGO" textFill="#fffcfc">
                <font>
                   <Font name="OCR A Extended" size="34.0" />
                </font>
             </Label>
-            <Button fx:id="cerrarSesionButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="15.0" prefWidth="109.0" style="-fx-background-color: #F3F3E0;" text="Cerrar sesión" textFill="#131313">
+            <Button fx:id="cerrarSesionButton" layoutX="14.0" layoutY="22.0" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="15.0" prefWidth="109.0" style="-fx-background-color: #F3F3E0;" text="Cerrar sesión" textFill="#131313">
+               <font>
+                  <Font name="OCR A Extended" size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="pagarReservaButton" layoutX="14.0" layoutY="48.0" mnemonicParsing="false" onAction="#pagarReserva" prefHeight="15.0" prefWidth="109.0" style="-fx-background-color: eee82e;" text="Pagar Reserva" textFill="#131313">
+               <font>
+                  <Font name="OCR A Extended" size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="verTicketButton" layoutX="14.0" layoutY="74.0" mnemonicParsing="false" onAction="#verTicket" prefHeight="15.0" prefWidth="109.0" style="-fx-background-color: a81be6;" text="Ver Ticket" textFill="#131313">
                <font>
                   <Font name="OCR A Extended" size="10.0" />
                </font>
