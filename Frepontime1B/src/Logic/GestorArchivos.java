@@ -120,7 +120,7 @@ public class GestorArchivos {
                 // Extraer los datos de la reserva
                 int numero = reserva.getNumero();
                 String nombreJuego = reserva.getJuego().getNombre();
-                boolean estadoDeReserva = reserva.gestEstadoDeReserva();
+                boolean estadoDeReserva = reserva.getEstadoDeReserva();
 
                 // Extraer los datos del horario
                 Horario horario = reserva.getHorario();

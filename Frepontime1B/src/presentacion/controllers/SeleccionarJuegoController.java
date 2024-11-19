@@ -24,27 +24,34 @@ public class SeleccionarJuegoController {
     public void cerrarSesion(ActionEvent event) {
         System.out.println(gestorReserva.buscarEstudiante(true));
         gestorReserva.buscarEstudiante(true).setEnLinea(false);
+
         NavegacionInterfaces.cambiarVentana((Stage) cerrarSesionButton.getScene().getWindow(), "/presentacion/views/login.fxml", "Login...");
         System.out.println(gestorReserva.buscarEstudiante(true));
     }
     @FXML
     public void seleccionarBillar(ActionEvent event) { //0 --> Billar, 1--> PingPong
         HorarioJuegosController.juegoAux = gestorReserva.getJuegosDisponibles().get(0);
+
         NavegacionInterfaces.cambiarVentana((Stage) billarButton.getScene().getWindow(), "/presentacion/views/HorarioJuegos.fxml", "Horarios Disponibles");
     }
     @FXML
     public void seleccionarPingPong(ActionEvent event) {
         HorarioJuegosController.juegoAux = gestorReserva.getJuegosDisponibles().get(1);
+
         NavegacionInterfaces.cambiarVentana((Stage) pingPongButton.getScene().getWindow(), "/presentacion/views/HorarioJuegos.fxml", "Horarios Disponibles");
     }
     @FXML
     public void pagarReserva  (ActionEvent event) {
-
+        int numeroDeReservaAux = gestorReserva.buscarEstudiante(true).getNumerosDeReservas().getLast();
+        if(!gestorReserva.getReservasDeEstudiantes().get(numeroDeReservaAux).getEstadoDeReserva()){
+            NavegacionInterfaces.mostrarAlerta("ERROR...", "No existe una reserva a pagar.");
+            return;
+        }
         NavegacionInterfaces.cambiarVentana((Stage) pagarReservaButton.getScene().getWindow(), "/presentacion/views/Pagar.fxml", "Pagos");
     }
     @FXML
     public void verTicket(ActionEvent event) {
-
+        //TODO: revisar lógica de los tickets.
         NavegacionInterfaces.cambiarVentana((Stage) verTicketButton.getScene().getWindow(),
                 "/presentacion/views/Ticket.fxml", "Ticket...");
     }

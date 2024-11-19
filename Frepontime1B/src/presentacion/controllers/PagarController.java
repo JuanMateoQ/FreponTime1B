@@ -15,20 +15,17 @@ public class PagarController {
     private Button finalizarButton;
     @FXML
     private TextField validarTextField;
-
     @FXML
     private TableView<Pago> tablaPagos;
-
     @FXML
     private TableColumn columnaUsuario;
-
     @FXML
     private TableColumn columnaFecha;
-
     @FXML
     private TableColumn columnaHora;
     @FXML
     private TableColumn columnaDuracion;
+
 
     @FXML
     private void regresarConfirmaReserva(ActionEvent event) {

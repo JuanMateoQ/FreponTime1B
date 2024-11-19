@@ -1,3 +1,1 @@
-juanChest 2
-JuanMateo 1
-juanChest 3
+juanChest 0

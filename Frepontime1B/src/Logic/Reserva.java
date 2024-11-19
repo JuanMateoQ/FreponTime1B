@@ -33,7 +33,7 @@ public class Reserva {
         return this.numero;
     }
 
-    public boolean gestEstadoDeReserva() {
+    public boolean getEstadoDeReserva() {
         return this.estadoDeReserva;
     }
     public void setPago(Pago pago) {

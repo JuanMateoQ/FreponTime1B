@@ -3,6 +3,7 @@ package Logic;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Objects;
 
 public class Horario {
     private LocalDate fecha;
@@ -16,14 +17,21 @@ public class Horario {
     }
     @Override
     public boolean equals(Object obj) {
-        if(this == obj){
+        if (this == obj) {
             return true;
         }
-        if(obj == null|| getClass() != obj.getClass()){
-           return false;
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
         }
-        Horario horario = (Horario)obj;
-        return this.fecha.equals(horario.fecha) && this.hora.equals(horario.hora) && this.tiempo.equals(horario.tiempo);
+        Horario horario = (Horario) obj;
+        return this.fecha.equals(horario.fecha) &&
+                this.hora.equals(horario.hora) &&
+                this.tiempo.equals(horario.tiempo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fecha, hora, tiempo);
     }
 
     public LocalDate getFecha() {
@@ -36,5 +44,9 @@ public class Horario {
 
     public Duration getTiempo() {
         return this.tiempo;
+    }
+
+    public void setHora(LocalTime hora) {
+        this.hora = hora;
     }
 }
