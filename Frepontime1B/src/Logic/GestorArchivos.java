@@ -111,13 +111,13 @@ public class GestorArchivos {
             System.out.println("Error al leer el archivo: " + e.getMessage());
         }
     }
-    public static void guardarReservas(File archivoReservas, ArrayList<Reserva> reservas) {
+    public static void guardarReservas(GestorReserva gestorReserva,File archivoReservas) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivoReservas))) {
             // Formatos de fecha y hora
             DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             DateTimeFormatter formatoHora = DateTimeFormatter.ofPattern("HH:mm");
 
-            for (Reserva reserva : reservas) {
+            for (Reserva reserva : gestorReserva.getReservasDeEstudiantes()) {
                 // Extraer los datos de la reserva
                 int numero = reserva.getNumero();
                 String nombreJuego = reserva.getJuego().getNombre();
@@ -165,6 +165,21 @@ public class GestorArchivos {
             throw new RuntimeException(e);
         } catch (IOException e) {
             System.out.println("Error al leer el archivo: " + e.getMessage());
+        }
+    }
+    public static void guardarReservasDeEstudiantes(GestorReserva gestorReserva, File archivoReservasDeEstudiantes) {
+        //Formato = usuario nReserva
+        try {
+            FileWriter writer = new FileWriter(archivoReservasDeEstudiantes);
+            for (Estudiante estudiante : gestorReserva.getGestorEstudiante().getEstudiantes()) {
+                for(Integer nReserva : estudiante.getNumerosDeReservas()){
+                    writer.write(estudiante.getUsuario() + " "
+                            + nReserva + "\n");
+                }
+            }
+            writer.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 

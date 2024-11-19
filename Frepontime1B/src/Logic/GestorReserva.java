@@ -36,22 +36,24 @@ public class GestorReserva {
         return instance;
     }
 
-    public boolean crearReserva(Juego juego, Horario horario) {
+    public Reserva crearReserva(Juego juego, Horario horario) {
+        Reserva potencialReserva = null;
         if(existirReservasDuplicadas(juego, horario)){
             System.out.println("Ya existe una reserva para este juego y horario.");
-            return false;
+            return null;
         }
         for(Estudiante estudianteEnLínea: gestorEstudiante.getEstudiantes()){
             if(estudianteEnLínea.isEnLínea()){
                 Reserva nuevaReserva = new Reserva(reservasDeEstudiantes.size(), juego, horario);
+                potencialReserva = nuevaReserva;
                 estudianteEnLínea.getNumerosDeReservas().add(nuevaReserva.getNumero());
                 reservasDeEstudiantes.add(nuevaReserva);
 
                 gestorPago.crearPagoDeReserva(nuevaReserva, reservasDeEstudiantes, juego);
-                return true;
+                return potencialReserva;
             }
         }
-        return false;
+        return potencialReserva;
     }
 
     private boolean existirReservasDuplicadas(Juego juego, Horario horario) {
