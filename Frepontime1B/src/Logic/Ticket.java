@@ -20,15 +20,15 @@ public class Ticket {
         return código;
     }
 
-    public String getFechaReserva() {
-        return fechaReserva.toString();
+    public LocalDate getFechaReserva() {
+        return fechaReserva;
     }
 
     public boolean isValidez() {
         return validez;
     }
 
-    public String getHoraReserva() {
-        return horaReserva.toString();
+    public LocalTime getHoraReserva() {
+        return horaReserva;
     }
 }

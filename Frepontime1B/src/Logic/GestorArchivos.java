@@ -5,6 +5,7 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 
 public class GestorArchivos {
@@ -202,31 +203,44 @@ public class GestorArchivos {
         }
     }
     public static void cargarTicket(GestorPago gestorPago, File tickets) {
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(tickets));
+        try (BufferedReader reader = new BufferedReader(new FileReader(tickets))) {
             String ticket;
-            String código;
-            boolean validez;
-            LocalDate fecha;  // Formato: yyyy-MM-dd
-            LocalTime hora; // Formato: HH:mm
-            while((ticket = reader.readLine()) != null) {
-                código = ticket.split(" ")[0];
-                validez = Boolean.parseBoolean(ticket.split(" ")[2]);
-                fecha = LocalDate.parse(ticket.split(" ")[3]);
-                hora = LocalTime.parse(ticket.split(" ")[4]);
-                gestorPago.agregarTickets(new Ticket(código,fecha,hora, validez));
+
+            // Leer línea por línea
+            while ((ticket = reader.readLine()) != null) {
+                // Dividir los datos de la línea solo una vez
+                String[] datos = ticket.split(" ");
+                if (datos.length != 4) {
+                    System.out.println("Formato incorrecto en la línea: " + ticket);
+                    continue; // Saltar a la siguiente línea
+                }
+
+                try {
+                    // Parsear los datos de la línea
+                    String codigo = datos[0];
+                    boolean validez = Boolean.parseBoolean(datos[1]);
+                    LocalDate fecha = LocalDate.parse(datos[2]);
+                    LocalTime hora = LocalTime.parse(datos[3]);
+
+                    // Crear el objeto Ticket y agregarlo al gestor
+                    gestorPago.agregarTickets(new Ticket(codigo, fecha, hora, validez));
+                } catch (DateTimeParseException e) {
+                    System.out.println("Error al parsear fecha u hora en la línea: " + ticket);
+                }
             }
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            System.out.println("Archivo no encontrado: " + tickets.getAbsolutePath());
         } catch (IOException e) {
             System.out.println("Error al leer el archivo: " + e.getMessage());
         }
     }
     public static void guardarTickets(GestorPago gestorPago, File tickets){
+        DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DateTimeFormatter formatoHora = DateTimeFormatter.ofPattern("HH:mm");
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(tickets))) {
             for (Ticket ticket : gestorPago.getTickets()) {
                 String linea = ticket.getCodigo() + " " + ticket.isValidez() + " " +
-                        ticket.getFechaReserva() + " " + ticket.getHoraReserva();
+                        ticket.getFechaReserva().format(formatoFecha) + " " + ticket.getHoraReserva().format(formatoHora);
                 writer.write(linea);
                 writer.newLine();
             }
