@@ -45,5 +45,7 @@ public class SeleccionarJuegoController {
     @FXML
     public void verTicket(ActionEvent event) {
 
+        NavegacionInterfaces.cambiarVentana((Stage) verTicketButton.getScene().getWindow(),
+                "/presentacion/views/Ticket.fxml", "Ticket...");
     }
 }
