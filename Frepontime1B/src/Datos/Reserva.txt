@@ -1,4 +1,3 @@
-0 Billar true 2024-11-19 09:00 60 true 2.0
-1 PingPong false 2024-11-19 10:00 60 false 1.0
-2 Billar true 2024-11-19 14:00 60 true 2.0
-3 Billar true 2024-11-19 11:00 60 true 2.0
+0 Billar true 2024-11-19 09:00 60 true 0.0
+1 PingPong false 2024-11-19 10:00 60 true 0.0
+2 Billar true 2024-11-19 13:00 60 true 0.0

@@ -133,6 +133,7 @@ public class HorarioJuegosController {
             return;
         }
         if(!(checkBoxes.get(numeroArreglo).isSelected() && checkBoxes.get(numeroArreglo).isIndeterminate())) {
+            horario.setHora(null);
             cambiarDeshabilitadoAlCheckBoxes(checkBoxes.get(numeroArreglo), false);
         }
     }

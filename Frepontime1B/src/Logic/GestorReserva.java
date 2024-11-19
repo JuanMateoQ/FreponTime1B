@@ -11,6 +11,7 @@ public class GestorReserva {
     private File reservasFile;
     private File juegosFile;
     private File reservasEstudiantesFile;
+    private String verificacionDePago = "CANCELADO24";
 
     private static GestorReserva instance;
 
@@ -27,7 +28,17 @@ public class GestorReserva {
         GestorArchivos.cargarJuegos(this, juegosFile);
         GestorArchivos.cargarReservas(this, reservasFile);
         GestorArchivos.cargarReservasDeEstudiantes(this, reservasEstudiantesFile);
+
+        cargarPagosYTicket();
     }
+
+    private void cargarPagosYTicket() {
+        for(int i =0; i < gestorPago.getPagos().size(); i++){
+            gestorPago.getPagos().get(i).setTicket(gestorPago.getTickets().get(i));
+            reservasDeEstudiantes.get(i).setPago(gestorPago.getPagos().get(i));
+        }
+    }
+
     public static GestorReserva getInstance() {
         if (instance == null) {
             instance = new GestorReserva();
@@ -50,6 +61,7 @@ public class GestorReserva {
 
                 gestorPago.crearPagoDeReserva(nuevaReserva, reservasDeEstudiantes, juego);
                 GestorArchivos.guardarReservas(this, reservasFile);
+                GestorArchivos.guardarReservasDeEstudiantes(this, reservasEstudiantesFile);
                 return potencialReserva;
             }
         }
@@ -128,5 +140,14 @@ public class GestorReserva {
 
     public GestorPago getGestorPago() {
         return gestorPago;
+    }
+
+    public String getVerificacionDePago() {
+        return this.verificacionDePago;
+    }
+
+    public void setEstadoDeReserva(boolean estadoDeReserva) {
+        int indice = buscarEstudiante(true).getNumerosDeReservas().getLast();
+        reservasDeEstudiantes.get(indice).setEstadoReserva(estadoDeReserva);
     }
 }

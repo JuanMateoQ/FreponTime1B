@@ -1,14 +1,16 @@
 package Logic;
 
+import javafx.scene.image.Image;
+
 public class Juego {
     private String nombre;
     private boolean buenEstado;
     private double precioPorHora;
+    private Image image;
 
     public Juego(String nombre, boolean estado, double precioPorHora) {
         this.nombre = nombre;
         this.buenEstado = estado;
-        this.precioPorHora = precioPorHora;
     }
 
     public boolean getEstado() {
@@ -52,5 +54,9 @@ public class Juego {
 
     public double getPrecioPorHora() {
         return precioPorHora;
+    }
+
+    public Image getImage() {
+        return image;
     }
 }

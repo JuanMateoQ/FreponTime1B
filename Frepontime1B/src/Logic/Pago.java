@@ -28,7 +28,7 @@ public class Pago {
         this.ticket = ticket;
     }
 
-    public int getnPago() {
+    public int getNPago() {
         return nPago;
     }
 

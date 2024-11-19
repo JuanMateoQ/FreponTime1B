@@ -29,11 +29,11 @@
    <center>
       <Pane prefHeight="377.0" prefWidth="520.0" style="-fx-background-color: #F3F3E0;" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="tablaPagos" layoutX="64.0" layoutY="62.0" prefHeight="55.0" prefWidth="406.0" style="-fx-background-color: #CBDCEB;">
+            <TableView fx:id="tablaPagos" layoutX="64.0" layoutY="62.0" prefHeight="80.0" prefWidth="365.0" style="-fx-background-color: #CBDCEB;">
               <columns>
-                <TableColumn prefWidth="138.4000244140625" text="Número de Pago" />
-                <TableColumn prefWidth="186.39996337890625" text="Valor Reserva" />
-                  <TableColumn prefWidth="80.800048828125" text="Total" />
+                <TableColumn fx:id="columnaNumeroPago" prefWidth="125.60003662109375" text="Número de Pago" />
+                <TableColumn fx:id="columnaValorReserva" prefWidth="126.39996337890625" text="Valor Reserva" />
+                  <TableColumn fx:id="columnaTotal" prefWidth="111.20001220703125" text="Total" />
               </columns>
             </TableView>
             <Label layoutX="34.0" layoutY="188.0" text="Validar: ">

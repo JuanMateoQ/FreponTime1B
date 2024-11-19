@@ -19,7 +19,7 @@ public class GestorPago {
 
     public void crearPagoDeReserva(Reserva nuevaReserva, ArrayList<Reserva> reservasDeEstudiantes, Juego juego) {
         Ticket ticket = new Ticket("T-N" + nuevaReserva.getNumero(), LocalDate.now(), LocalTime.now(), false);
-        Pago nuevoPago = new Pago(reservasDeEstudiantes.size(), juego.getPrecioPorHora(), false);
+        Pago nuevoPago = new Pago(reservasDeEstudiantes.size(), juego.getPrecioPorHora() * nuevaReserva.getHorario().getTiempo().toHours(), false);
         nuevoPago.setTicket(ticket);
         tickets.add(ticket);
         pagos.add(nuevoPago);

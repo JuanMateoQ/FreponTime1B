@@ -1,12 +1,13 @@
 package Logic;
 
+import javafx.scene.image.Image;
+
 import java.io.*;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.util.ArrayList;
 
 public class GestorArchivos {
 
@@ -72,6 +73,7 @@ public class GestorArchivos {
                 // Obtener los detalles del juego
                 boolean estadoJuego = Boolean.parseBoolean(datos[6]);
                 double precioPorHora = Double.parseDouble(datos[7]);
+               // String ubImage = datos[8];
 
                 // Crear el objeto Juego
                 Juego juego = new Juego(nombreJuego, estadoJuego, precioPorHora);
@@ -97,11 +99,13 @@ public class GestorArchivos {
             String nombreJuego;
             boolean buenEstado;
             double precioPorHora;
+            String ubImage;
             while ((juego = reader.readLine()) != null) {
                 // Procesar la línea
                 nombreJuego = juego.split(" ")[0];
                 buenEstado = Boolean.parseBoolean(juego.split(" ")[1]);
                 precioPorHora = Double.parseDouble(juego.split(" ")[2]);
+                //ubImage = juego.split(" ")[3];
                 //TODO: Hacer función agregarJuegos en gestor reserva
                 gestorReserva.agregarJuegos(new Juego(nombreJuego, buenEstado, precioPorHora));
             }
@@ -209,7 +213,7 @@ public class GestorArchivos {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(pagos))) {
             for (Pago pago : gestorPago.getPagos()) {
                 // Formato: nPago monto estadoPago
-                String linea = pago.getnPago() + " " + pago.getMonto() + " " + pago.isEstadoPago();
+                String linea = pago.getNPago() + " " + pago.getMonto() + " " + pago.isEstadoPago();
                 writer.write(linea);
                 writer.newLine();
             }
@@ -284,7 +288,7 @@ public class GestorArchivos {
                 // Buscar el pago correspondiente por número de pago
                 Pago pagoEncontrado = null;
                 for (Pago pago : gestorPago.getPagos()) {
-                    if (pago.getnPago() == nPago) {
+                    if (pago.getNPago() == nPago) {
                         pagoEncontrado = pago;
                         break;
                     }
@@ -307,7 +311,7 @@ public class GestorArchivos {
     public static void guardarPagosTicket(GestorPago gestorPago, File pagosTickets){
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(pagosTickets))) {
             for (Pago pago : gestorPago.getPagos()) {
-                String linea = pago.getTicket().getCodigo() + " " + pago.getnPago();
+                String linea = pago.getTicket().getCodigo() + " " + pago.getNPago();
                 writer.write(linea);
                 writer.newLine();
             }
